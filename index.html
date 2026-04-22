@@ -178,11 +178,7 @@
 
       @media (pointer: coarse) {
         body {
-          cursor: default;
-        }
-
-        .cursor-layer {
-          display: none;
+          cursor: none;
         }
       }
     </style>
@@ -228,16 +224,26 @@
       };
       const positions = Array.from({ length: 12 }, () => ({ ...pointer }));
 
+      const setPointerPosition = (x, y, shouldSnap = false) => {
+        pointer.x = x;
+        pointer.y = y;
+
+        if (!shouldSnap) return;
+
+        positions.forEach((position) => {
+          position.x = x;
+          position.y = y;
+        });
+      };
+
       const updatePointer = (event) => {
-        pointer.x = event.clientX;
-        pointer.y = event.clientY;
+        setPointerPosition(event.clientX, event.clientY);
       };
 
       const updateTouchPointer = (event) => {
         const touch = event.touches && event.touches[0];
         if (!touch) return;
-        pointer.x = touch.clientX;
-        pointer.y = touch.clientY;
+        setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
       };
 
       const animateCursor = () => {
