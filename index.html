@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Levity Ltd</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
-    <link rel="preload" as="image" href="assets/brand/Levity%20Logo_Negative.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
@@ -56,8 +55,6 @@
       .logo {
         display: block;
         width: clamp(360px, 58vw, 520px);
-        height: auto;
-        aspect-ratio: 1 / 1;
         max-height: 58dvh;
         object-fit: contain;
       }
@@ -114,13 +111,8 @@
       }
 
       @media (max-width: 640px) {
-        .hero-mark {
-          top: 30svh;
-        }
-
         .logo {
           width: min(92vw, 440px);
-          max-height: 58svh;
         }
 
         .tagline {
@@ -208,8 +200,8 @@
       <span class="cursor-trail"></span>
     </div>
     <main class="hero-mark" aria-label="Levity Ltd">
-      <img class="logo" src="assets/brand/Levity%20Logo_Negative.png" width="500" height="500" alt="Levity Ltd" fetchpriority="high">
-      <p class="tagline">websites as unique as your business</p>
+      <img class="logo" src="assets/brand/Levity%20Logo_Negative.png" alt="Levity Ltd">
+      <p class="tagline">unique design for iconic founders</p>
       <nav class="contact-actions" aria-label="Contact Levity Ltd">
         <a class="contact-button glass-panel" href="mailto:melissa@levity.ltd?subject=Website%20Inquiry" aria-label="Email Melissa at Levity Ltd" data-email-link>
           <svg viewBox="0 0 24 24" aria-hidden="true">
