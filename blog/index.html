@@ -3,15 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Work | Levity Ltd</title>
+    <title>Blog | Levity Ltd</title>
     <link rel="icon" href="../assets/cloud-icon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
     <link rel="preload" as="image" href="../assets/brand/Levity%20Logo.webp">
-    <link rel="preload" as="image" href="../assets/work/sanny-anzer.webp">
-    <link rel="preload" as="image" href="../assets/work/bb-shabab.webp">
-    <link rel="preload" as="image" href="../assets/work/melissa-leavenworth.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
@@ -20,10 +17,8 @@
         --levity-lilac: #b1a1ed;
         --levity-limelight: #c1ff72;
         --levity-eggplant: #564f74;
-        --levity-fog: #d6d4d8;
         --levity-cloud: #fbfaf0;
         --font-body: "Nunito", system-ui, sans-serif;
-        --font-accent: "Satisfy", cursive;
       }
 
       * {
@@ -64,10 +59,7 @@
       .brand-link {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
         color: #ffffff;
-        font-size: 1rem;
-        font-weight: 800;
         text-decoration: none;
       }
 
@@ -107,7 +99,8 @@
 
       .nav-link:hover,
       .nav-link:focus-visible,
-      .project-card:hover {
+      .post-card:hover,
+      .post-card:focus-visible {
         transform: translateY(-2px);
         box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
         outline: none;
@@ -130,7 +123,7 @@
         margin-bottom: 18px;
       }
 
-      .work-label {
+      .page-label {
         grid-column: 1 / span 2;
         margin: 0;
         color: var(--levity-limelight);
@@ -148,7 +141,7 @@
       }
 
       .details-heading {
-        grid-column: 3;
+        grid-column: 2 / span 2;
         margin: 0;
         color: #ffffff;
         font-size: 1rem;
@@ -158,18 +151,17 @@
         text-transform: uppercase;
       }
 
-      .project-grid {
+      .blog-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
-        width: 100%;
         min-height: 0;
       }
 
-      .project-list {
-        grid-column: 1 / span 2;
+      .post-list {
+        grid-column: 1;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         align-content: start;
         gap: 18px;
         min-height: 0;
@@ -179,52 +171,69 @@
         scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
       }
 
-      .project-list::-webkit-scrollbar {
+      .post-list::-webkit-scrollbar {
         width: 8px;
       }
 
-      .project-list::-webkit-scrollbar-track {
+      .post-list::-webkit-scrollbar-track {
         background: rgba(255, 255, 255, 0.12);
         border-radius: 999px;
       }
 
-      .project-list::-webkit-scrollbar-thumb {
+      .post-list::-webkit-scrollbar-thumb {
         background: rgba(193, 255, 114, 0.7);
         border-radius: 999px;
       }
 
-      .project-card {
-        position: relative;
-        min-height: 0;
-        aspect-ratio: 3 / 2;
-        overflow: hidden;
+      .post-card {
+        display: grid;
+        align-content: end;
+        min-height: 66px;
+        aspect-ratio: auto;
+        padding: 18px;
         border: 1px solid rgba(255, 255, 255, 0.26);
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.14);
         color: #ffffff;
+        text-decoration: none;
         -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
         box-shadow: 0 12px 28px rgba(12, 6, 34, 0.28);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .project-card.black-frame {
-        background: #000000;
+      .post-card.is-selected {
+        border-color: rgba(193, 255, 114, 0.82);
+        box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
       }
 
-      .project-card.melissa-card {
-        grid-column: 1;
-        grid-row: 2;
+      .post-card h2 {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(1.2rem, 2vw, 1.7rem);
+        font-weight: 800;
+        line-height: 1.05;
+      }
+
+      .post-type {
+        margin: 10px 0 0;
+        color: var(--levity-limelight);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .hover-panel {
-        grid-column: 3;
+        grid-column: 2 / span 2;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 90%;
         min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         padding: 24px;
         border: 1px solid rgba(255, 255, 255, 0.26);
         border-radius: 8px;
@@ -232,7 +241,22 @@
         -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
         box-shadow: 0 12px 28px rgba(12, 6, 34, 0.18);
+        scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
         transition: background 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .hover-panel::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .hover-panel::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+      }
+
+      .hover-panel::-webkit-scrollbar-thumb {
+        background: rgba(193, 255, 114, 0.7);
+        border-radius: 999px;
       }
 
       .hover-panel p {
@@ -248,7 +272,6 @@
         align-items: flex-start;
         justify-content: flex-start;
         columns: 1;
-        overflow-y: auto;
       }
 
       .hover-panel.is-filled p {
@@ -257,81 +280,20 @@
         break-inside: avoid;
         column-span: none;
         color: var(--levity-eggplant);
-        font-size: 0.86rem;
+        font-size: 0.92rem;
         font-weight: 800;
-        line-height: 1.42;
+        line-height: 1.45;
         text-align: left;
       }
 
       .hover-panel.is-filled p + p {
-        margin-top: 14px;
+        margin-top: 16px;
       }
 
-      .project-grid:has(.project-list .project-card:hover) .hover-panel,
-      .project-grid:has(.project-list .project-card:focus-visible) .hover-panel {
+      .blog-grid:has(.post-card:hover) .hover-panel,
+      .blog-grid:has(.post-card:focus-visible) .hover-panel {
         background: rgba(193, 255, 114, 0.6);
         box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
-      }
-
-      .project-visual {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: var(--levity-cloud);
-        object-fit: contain;
-        object-position: top center;
-      }
-
-      .project-visual.dark {
-        background: #000000;
-      }
-
-      .project-visual.zoom-20 {
-        transform: scale(1.2);
-        transform-origin: top center;
-      }
-
-      .project-visual.offset-down-10 {
-        transform: translateY(10px);
-      }
-
-      .project-visual.offset-down-14 {
-        transform: translateY(14px);
-      }
-
-      .project-visual.zoom-140 {
-        filter: brightness(1.1);
-        transform: scale(1.4);
-        transform-origin: top center;
-      }
-
-      .project-copy {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        display: grid;
-        gap: 6px;
-        padding: 34px 14px 13px;
-        background: linear-gradient(180deg, transparent, rgba(12, 6, 34, 0.72));
-      }
-
-      .project-copy h2 {
-        margin: 0;
-        color: #ffffff;
-        font-size: clamp(1rem, 1.35vw, 1.22rem);
-        font-weight: 800;
-        line-height: 1.05;
-      }
-
-      .project-type {
-        margin: 0;
-        color: var(--levity-limelight);
-        font-size: 0.66rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
       }
 
       @media (max-width: 900px) {
@@ -339,17 +301,19 @@
           grid-template-columns: 1fr;
         }
 
-        .work-label {
+        .page-label {
           grid-column: auto;
         }
 
-        .project-grid,
-        .project-list {
+        .blog-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .project-card.melissa-card,
-        .project-list,
+        .post-list {
+          grid-template-columns: 1fr;
+        }
+
+        .post-list,
         .hover-panel {
           grid-column: auto;
           grid-row: auto;
@@ -362,22 +326,9 @@
       }
 
       @media (max-width: 720px) {
-        body {
-          overflow: hidden;
-        }
-
         .site-header {
           width: min(100% - 28px, 1120px);
           align-items: flex-start;
-        }
-
-        .brand-link span {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          overflow: hidden;
-          clip: rect(0 0 0 0);
-          white-space: nowrap;
         }
 
         .nav-links {
@@ -391,8 +342,8 @@
         }
 
         main {
-          height: calc(100dvh - 166px);
           width: min(100% - 28px, 1120px);
+          height: calc(100dvh - 166px);
           padding-top: 30px;
         }
 
@@ -400,17 +351,9 @@
           margin-bottom: 28px;
         }
 
-        .project-grid {
+        .blog-grid,
+        .post-list {
           grid-template-columns: 1fr;
-          gap: 18px;
-        }
-
-        .project-list {
-          grid-template-columns: 1fr;
-        }
-
-        .project-visual {
-          height: 100%;
         }
       }
 
@@ -494,62 +437,33 @@
       </nav>
     </header>
     <main>
-      <section class="page-heading" aria-labelledby="work-title">
-        <h1 class="work-label" id="work-title" aria-label="Work">
-          <span class="repel-letter" aria-hidden="true">W</span><span class="repel-letter" aria-hidden="true">o</span><span class="repel-letter" aria-hidden="true">r</span><span class="repel-letter" aria-hidden="true">k</span>
+      <section class="page-heading" aria-labelledby="blog-title">
+        <h1 class="page-label" id="blog-title" aria-label="Blog">
+          <span class="repel-letter" aria-hidden="true">B</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">o</span><span class="repel-letter" aria-hidden="true">g</span>
         </h1>
-        <h2 class="details-heading" aria-label="Details">
-          <span class="repel-letter" aria-hidden="true">D</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">t</span><span class="repel-letter" aria-hidden="true">a</span><span class="repel-letter" aria-hidden="true">i</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">s</span>
-        </h2>
       </section>
 
-      <section class="project-grid" aria-label="Levity project gallery">
-        <div class="project-list">
-          <a class="project-card black-frame" href="https://www.bksharad.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BK Sharad website in a new tab" data-details-template="bk-sharad-details">
-            <img class="project-visual dark offset-down-10" src="../assets/work/bb-shabab.webp" width="3014" height="1132" alt="BB Shabab lettering in red and teal on black">
-            <div class="project-copy">
-              <h2>BK Sharad</h2>
-              <p class="project-type">Brand Identity and Web Design</p>
-            </div>
-          </a>
-
-          <a class="project-card" href="https://www.sammyanzercomedy.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Sammy Anzer Comedy website in a new tab" data-details-template="sammy-anzer-details">
-            <img class="project-visual zoom-20" src="../assets/work/sanny-anzer.webp" width="3001" height="1333" alt="Sammy Anzer graffiti-style lettering in orange, pink, and blue">
-            <div class="project-copy">
-              <h2>Sammy Anzer</h2>
-              <p class="project-type">Brand Identity and Web Design</p>
-            </div>
-          </a>
-
-          <a class="project-card melissa-card" href="https://melissalynnel.github.io/serenity/" target="_blank" rel="noopener noreferrer" aria-label="Open Melissa Leavenworth website in a new tab" data-details-template="melissa-leavenworth-details">
-            <img class="project-visual zoom-140" src="../assets/work/melissa-leavenworth.webp" width="865" height="705" alt="Melissa Leavenworth script lettering on a rose background">
-            <div class="project-copy">
-              <h2>Melissa Leavenworth</h2>
-              <p class="project-type">Brand Identity and Web Design</p>
+      <section class="blog-grid" aria-label="Levity blog">
+        <div class="post-list">
+          <a class="post-card" href="https://levity.ltd/blog" aria-label="Show Posts coming soon details" data-details-template="coming-soon-details">
+            <div>
+              <h2>Posts coming soon</h2>
+              <p class="post-type">date</p>
             </div>
           </a>
         </div>
 
-        <aside class="hover-panel" aria-label="Project details">
-          <p>Hover over a project for more details.</p>
+        <aside class="hover-panel" aria-label="Blog details">
+          <p>Select a blog post to read more.</p>
         </aside>
       </section>
 
-      <template id="bk-sharad-details">
-        <p>Stand-up comedy and hardcore metal aesthetics don't usually share a stage, but then again, BK Sharad isn't your usual comedian.</p>
-        <p>A former emo hockey player turned first-generation Indian millennial punchline machine, BK has been slaying sets at 20+ comedy festivals nationwide, all with the kind of positive outlook that somehow hits harder coming from a guy who looks like he fronts a death metal band.</p>
-        <p>Levity built BK a brand identity and Squarespace website that results in a bold, high-contrast digital presence that's as visually intense as his stage persona. With seamless events functionality to keep fans locked in on where he's performing next, BK's brand is now as ready for the spotlight as he is.</p>
-      </template>
-      <template id="sammy-anzer-details">
-        <p>Part storyteller, part cultural investigator, Sammy Anzer isn't just here to make you laugh, he's here to make you think.</p>
-        <p>A multi-racial comedian from Queens, Sammy blends slick wit with cultural empathy in a way that feels sharp and inviting all at once. He's written for Kevin Hart's LOL network, hit #1 on iTunes, and raised over $20,000 for St. Jude's Children's Hospital because changing the world and getting laughs don't have to be mutually exclusive.</p>
-        <p>Levity built Sammy a brand identity and Squarespace website that matches his energy: smart, warm, and impossible to look away from. With seamless events functionality to keep his audience close, Sammy's brand is as ready to move the needle as he is.</p>
-      </template>
-      <template id="melissa-leavenworth-details">
-        <p>Melissa Leavenworth has been making the Internet more fun since before most people knew it needed saving.</p>
-        <p>Inspired by early MySpace aesthetics and the Sailor Moon era, this self-taught coder turned designer spent years creating in the entertainment space before setting her sights on San Francisco's startup world.</p>
-        <p>Her obsession with bringing joy and personality back to the web is baked into everything she touches including Levity itself.</p>
-        <p>Her own portfolio site is a showcase of Melissa's creative vision: proof that design can be bold, nostalgic, and unique all at once.</p>
+      <template id="coming-soon-details">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at dui nibh. Maecenas semper vel eros pellentesque luctus. Suspendisse arcu dui, elementum nec fermentum quis, auctor a dui. Sed vitae urna in mi tempus facilisis ut ac mi. Ut laoreet ullamcorper elit, et feugiat lorem interdum ac. Sed tincidunt, leo nec placerat cursus, tellus sem venenatis ante, nec tempor sem justo vel lorem. Morbi congue turpis eu luctus posuere. Nam venenatis nisi vel nunc viverra convallis. Sed efficitur turpis eu rhoncus porttitor.</p>
+        <p>Duis eget porttitor velit. Sed consectetur tortor ut consectetur vestibulum. Cras sagittis blandit feugiat. Nullam nec tristique est, et vehicula sapien. Phasellus eu libero elit. Donec in sapien metus. Donec nec tempus ipsum. Duis egestas faucibus blandit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus commodo mollis risus eget pulvinar.</p>
+        <p>Sed lectus ipsum, semper non semper ac, congue non lorem. Maecenas consequat arcu dolor, sed luctus purus egestas vel. Vestibulum condimentum suscipit ornare. Nulla bibendum sem vel purus venenatis, sed ultricies metus viverra. Donec bibendum aliquam maximus. Duis aliquet felis sit amet augue bibendum commodo. Nullam ac sapien ullamcorper, mollis ligula eu, dignissim orci. Donec eleifend eros facilisis, euismod enim vitae, tempus est. Fusce pulvinar mi ac augue imperdiet, non molestie lorem mollis. Etiam sed orci iaculis, pretium mauris a, aliquam orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a arcu metus. Maecenas lobortis est non leo convallis euismod. Praesent auctor consequat venenatis. Donec et neque id nibh lacinia iaculis.</p>
+        <p>Nunc faucibus lorem eu mi euismod, nec dignissim enim dapibus. Donec eget massa nec dolor feugiat faucibus. Fusce tellus mi, convallis sed sapien vitae, vulputate fermentum orci. Cras interdum dui sed tincidunt pulvinar. Cras lobortis risus volutpat magna sagittis interdum. Proin ut est luctus, venenatis ex ut, varius eros. Fusce volutpat sem interdum, pretium mi a, hendrerit urna. Nulla aliquam lacus at diam sollicitudin euismod. Nunc vel dui condimentum, tempus lorem sit amet, rutrum erat. Proin semper tellus aliquet facilisis convallis. Vestibulum finibus sed velit quis mattis. Vivamus fermentum varius eleifend. Cras mauris lorem, tincidunt at quam vel, porta posuere sapien. Donec tempus metus non lorem aliquet lobortis. Proin tincidunt mauris eget sapien commodo maximus.</p>
+        <p>In a aliquam sapien, sit amet bibendum erat. Vivamus id eros iaculis, tincidunt dolor vel, dictum nisl. Phasellus tincidunt lacus et elit luctus, eget viverra ligula varius. Donec lacus nibh, bibendum ut varius a, facilisis id justo. Curabitur volutpat sit amet velit eget pellentesque. Fusce hendrerit sapien nec accumsan maximus. Integer fermentum quis velit in luctus. Aenean laoreet lorem et ornare dapibus. Duis a rhoncus nibh. Quisque pellentesque ultrices felis, scelerisque sagittis augue laoreet nec. Ut venenatis lacinia justo vitae interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
       </template>
     </main>
     <script>
@@ -557,8 +471,9 @@
       const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
       const repelLetters = [...document.querySelectorAll(".repel-letter")];
       const hoverPanel = document.querySelector(".hover-panel");
-      const projectCards = [...document.querySelectorAll(".project-card")];
+      const postCards = [...document.querySelectorAll(".post-card")];
       const defaultHoverPanelMarkup = hoverPanel ? hoverPanel.innerHTML : "";
+      let selectedPostCard = null;
       const pointer = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
@@ -587,10 +502,10 @@
         setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
       };
 
-      const setProjectDetails = (projectCard) => {
+      const setPostDetails = (postCard) => {
         if (!hoverPanel) return;
 
-        const templateId = projectCard.dataset.detailsTemplate;
+        const templateId = postCard.dataset.detailsTemplate;
         const template = templateId ? document.getElementById(templateId) : null;
 
         if (template) {
@@ -603,17 +518,30 @@
         hoverPanel.classList.remove("is-filled");
       };
 
-      const resetProjectDetails = () => {
+      const resetPostDetails = () => {
+        if (selectedPostCard) return;
         if (!hoverPanel) return;
         hoverPanel.innerHTML = defaultHoverPanelMarkup;
         hoverPanel.classList.remove("is-filled");
       };
 
-      projectCards.forEach((projectCard) => {
-        projectCard.addEventListener("mouseenter", () => setProjectDetails(projectCard));
-        projectCard.addEventListener("focus", () => setProjectDetails(projectCard));
-        projectCard.addEventListener("mouseleave", resetProjectDetails);
-        projectCard.addEventListener("blur", resetProjectDetails);
+      const selectPostCard = (postCard) => {
+        selectedPostCard = postCard;
+        postCards.forEach((card) => {
+          card.classList.toggle("is-selected", card === postCard);
+        });
+        setPostDetails(postCard);
+      };
+
+      postCards.forEach((postCard) => {
+        postCard.addEventListener("mouseenter", () => setPostDetails(postCard));
+        postCard.addEventListener("focus", () => setPostDetails(postCard));
+        postCard.addEventListener("mouseleave", resetPostDetails);
+        postCard.addEventListener("blur", resetPostDetails);
+        postCard.addEventListener("click", (event) => {
+          event.preventDefault();
+          selectPostCard(postCard);
+        });
       });
 
       const animateCursor = () => {
