@@ -59,13 +59,14 @@
       .brand-link {
         display: inline-flex;
         align-items: center;
+        transform: translateX(-18px);
         color: #ffffff;
         text-decoration: none;
       }
 
       .brand-link img {
-        width: 144px;
-        height: 144px;
+        width: 173px;
+        height: 173px;
         object-fit: contain;
         animation: logo-float 6s ease-in-out infinite;
       }
@@ -74,6 +75,13 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.2);
       }
 
       .nav-link {
@@ -82,7 +90,7 @@
         justify-content: center;
         min-height: 42px;
         padding: 0 18px;
-        border: 1px solid rgba(255, 255, 255, 0.26);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.13);
         color: #ffffff;
@@ -432,7 +440,7 @@
     </div>
     <header class="site-header">
       <a class="brand-link" href="../" aria-label="Levity Ltd home">
-        <img src="../assets/brand/Levity%20Logo.webp" width="144" height="144" alt="">
+        <img src="../assets/brand/Levity%20Logo.webp" width="173" height="173" alt="">
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a class="nav-link" href="../">Home</a>

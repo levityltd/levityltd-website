@@ -65,6 +65,7 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
+        transform: translateX(-18px);
         color: #ffffff;
         font-size: 1rem;
         font-weight: 800;
@@ -72,8 +73,8 @@
       }
 
       .brand-link img {
-        width: 144px;
-        height: 144px;
+        width: 173px;
+        height: 173px;
         object-fit: contain;
         animation: logo-float 6s ease-in-out infinite;
       }
@@ -82,6 +83,13 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.2);
       }
 
       .nav-link {
@@ -90,7 +98,7 @@
         justify-content: center;
         min-height: 42px;
         padding: 0 18px;
-        border: 1px solid rgba(255, 255, 255, 0.26);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.13);
         color: #ffffff;
@@ -117,9 +125,9 @@
         display: grid;
         grid-template-rows: auto minmax(0, 1fr);
         width: min(1120px, calc(100% - 40px));
-        height: calc(100dvh - 166px);
-        margin: 0 auto;
-        padding: 14px 0 24px;
+        height: calc(100dvh - 142px);
+        margin: -24px auto 0;
+        padding: 4px 0 24px;
       }
 
       .page-heading {
@@ -265,6 +273,16 @@
 
       .hover-panel.is-filled p + p {
         margin-top: 14px;
+      }
+
+      .hover-panel.is-filled .detail-subtitle {
+        margin: 20px 0 10px;
+        color: #ffffff;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
       }
 
       .project-grid:has(.project-list .project-card:hover) .hover-panel,
@@ -484,7 +502,7 @@
     </div>
     <header class="site-header">
       <a class="brand-link" href="../" aria-label="Levity Ltd home">
-        <img src="../assets/brand/Levity%20Logo.webp" width="144" height="144" alt="">
+        <img src="../assets/brand/Levity%20Logo.webp" width="173" height="173" alt="">
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a class="nav-link" href="../">Home</a>
@@ -536,20 +554,21 @@
       </section>
 
       <template id="bk-sharad-details">
-        <p>Stand-up comedy and hardcore metal aesthetics don't usually share a stage, but then again, BK Sharad isn't your usual comedian.</p>
-        <p>A former emo hockey player turned first-generation Indian millennial punchline machine, BK has been slaying sets at 20+ comedy festivals nationwide, all with the kind of positive outlook that somehow hits harder coming from a guy who looks like he fronts a death metal band.</p>
-        <p>Levity built BK a brand identity and Squarespace website that results in a bold, high-contrast digital presence that's as visually intense as his stage persona. With seamless events functionality to keep fans locked in on where he's performing next, BK's brand is now as ready for the spotlight as he is.</p>
+        <p>Levity built BK a brand identity that reflects his hardcore aesthetic: bold, high-contrast, and as visually intense as his stage persona.</p>
+        <p>His custom Squarespace website features seamless events functionality built to replace solutions like Bandsintown at a lower price point for comedians, keeping fans locked in on where he's performing next, driving ticket sales, and growing his mailing list so he can keep expanding his reach to new venues.</p>
+        <h3 class="detail-subtitle">Client</h3>
+        <p>Stand-up comedy and hardcore metal aesthetics don't usually share a stage, but then again, BK Sharad isn't your usual comedian. A former emo hockey player turned first-generation Indian millennial punchline machine, BK has been slaying sets at 20+ comedy festivals nationwide.</p>
       </template>
       <template id="sammy-anzer-details">
-        <p>Part storyteller, part cultural investigator, Sammy Anzer isn't just here to make you laugh, he's here to make you think.</p>
-        <p>A multi-racial comedian from Queens, Sammy blends slick wit with cultural empathy in a way that feels sharp and inviting all at once. He's written for Kevin Hart's LOL network, hit #1 on iTunes, and raised over $20,000 for St. Jude's Children's Hospital because changing the world and getting laughs don't have to be mutually exclusive.</p>
-        <p>Levity built Sammy a brand identity and Squarespace website that matches his energy: smart, warm, and impossible to look away from. With seamless events functionality to keep his audience close, Sammy's brand is as ready to move the needle as he is.</p>
+        <p>Levity built Sammy a brand identity that reflects his Queens roots: slick, street-smart, and impossible to look away from.</p>
+        <p>His custom Squarespace website features seamless events functionality built to replace solutions like Bandsintown at a lower price point for comedians, keeping his audience locked in on where he's performing next, driving ticket sales, and growing his mailing list so he can keep taking his act to new stages.</p>
+        <h3 class="detail-subtitle">Client</h3>
+        <p>A multi-racial comedian from Queens, Sammy blends slick wit with cultural empathy in a way that feels sharp and inviting all at once. He's written for Kevin Hart's LOL network, hit #1 on iTunes, and raised over $20,000 for St. Jude's Children's Hospital.</p>
       </template>
       <template id="melissa-leavenworth-details">
-        <p>Melissa Leavenworth has been making the Internet more fun since before most people knew it needed saving.</p>
-        <p>Inspired by early MySpace aesthetics and the Sailor Moon era, this self-taught coder turned designer spent years creating in the entertainment space before setting her sights on San Francisco's startup world.</p>
-        <p>Her obsession with bringing joy and personality back to the web is baked into everything she touches including Levity itself.</p>
-        <p>Her own portfolio site is a showcase of Melissa's creative vision: proof that design can be bold, nostalgic, and unique all at once.</p>
+        <p>Levity built Melissa a personal portfolio that channels her lifelong obsession with making the Internet more fun: bold, nostalgic, and endlessly surprising. Equal parts design showcase and origin story, the site is a living example of what Levity stands for: unique personality-driven design.</p>
+        <h3 class="detail-subtitle">Client</h3>
+        <p>Melissa Leavenworth has been making the Internet more fun since before most people knew it needed saving. Inspired by early MySpace aesthetics and the Sailor Moon era, this self-taught coder turned designer spent years creating in the entertainment space before setting her sights on San Francisco's startup world. Her obsession with bringing joy and personality back to the web is baked into everything she touches, including Levity itself.</p>
       </template>
     </main>
     <script>
