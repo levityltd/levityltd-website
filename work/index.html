@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Work | Levity Ltd</title>
+    <link rel="icon" href="../assets/cloud-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="preload" as="image" href="../assets/brand/Levity%20Logo.png">
+    <link rel="preload" as="image" href="../assets/work/sanny-anzer.png">
+    <link rel="preload" as="image" href="../assets/work/bb-shabab.png">
+    <link rel="preload" as="image" href="../assets/work/melissa-leavenworth.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --levity-lilac: #b1a1ed;
+        --levity-limelight: #c1ff72;
+        --levity-eggplant: #564f74;
+        --levity-fog: #d6d4d8;
+        --levity-cloud: #fbfaf0;
+        --font-body: "Nunito", system-ui, sans-serif;
+        --font-accent: "Satisfy", cursive;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+        background: var(--levity-lilac);
+      }
+
+      body {
+        min-height: 100dvh;
+        margin: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(193, 255, 114, 0.28), transparent 34rem),
+          linear-gradient(180deg, var(--levity-lilac), #9586d5 68%, var(--levity-eggplant));
+        color: var(--levity-cloud);
+        cursor: none;
+        font-family: var(--font-body);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 14px 0 8px;
+      }
+
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .brand-link img {
+        width: 144px;
+        height: 144px;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.13);
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .book-link {
+        background: var(--levity-limelight);
+        color: var(--levity-eggplant);
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible,
+      .project-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
+        outline: none;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 14px 0 24px;
+      }
+
+      .page-heading {
+        display: grid;
+        gap: 8px;
+        max-width: 760px;
+        margin-bottom: 18px;
+      }
+
+      .work-label {
+        margin: 0;
+        color: var(--levity-limelight);
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .work-letter {
+        display: inline-block;
+        transition: transform 0.16s ease-out;
+        will-change: transform;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        width: 100%;
+      }
+
+      .project-card {
+        position: relative;
+        min-height: 0;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #ffffff;
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.28);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .project-card.black-frame {
+        background: #000000;
+      }
+
+      .project-visual {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--levity-cloud);
+        object-fit: contain;
+        object-position: top center;
+      }
+
+      .project-visual.dark {
+        background: #000000;
+      }
+
+      .project-visual.zoom-20 {
+        transform: scale(1.2);
+        transform-origin: top center;
+      }
+
+      .project-visual.offset-down-10 {
+        transform: translateY(10px);
+      }
+
+      .project-visual.offset-down-14 {
+        transform: translateY(14px);
+      }
+
+      .project-visual.zoom-140 {
+        filter: brightness(1.1);
+        transform: scale(1.4);
+        transform-origin: top center;
+      }
+
+      .project-copy {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        display: grid;
+        gap: 6px;
+        padding: 34px 14px 13px;
+        background: linear-gradient(180deg, transparent, rgba(12, 6, 34, 0.72));
+      }
+
+      .project-copy h2 {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(1rem, 1.35vw, 1.22rem);
+        font-weight: 800;
+        line-height: 1.05;
+      }
+
+      .project-type {
+        margin: 0;
+        color: var(--levity-limelight);
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 900px) {
+        .project-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          overflow: auto;
+        }
+
+        .site-header {
+          width: min(100% - 28px, 1120px);
+          align-items: flex-start;
+        }
+
+        .brand-link span {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          white-space: nowrap;
+        }
+
+        .nav-links {
+          gap: 8px;
+        }
+
+        .nav-link {
+          min-height: 40px;
+          padding: 0 14px;
+          font-size: 0.88rem;
+        }
+
+        main {
+          width: min(100% - 28px, 1120px);
+          padding-top: 30px;
+        }
+
+        .page-heading {
+          margin-bottom: 28px;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .project-visual {
+          height: 100%;
+        }
+      }
+
+      .cursor-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .cursor-dot,
+      .cursor-trail {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.9),
+          0 0 12px rgba(255, 194, 236, 0.8),
+          0 0 18px rgba(193, 255, 114, 0.7);
+        transform: translate(-100px, -100px);
+        transition: transform 0.02s linear;
+      }
+
+      .cursor-trail {
+        width: 6px;
+        height: 6px;
+        opacity: 0.7;
+        filter: blur(0.2px);
+      }
+
+      @media (pointer: coarse) {
+        body {
+          cursor: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-layer" aria-hidden="true">
+      <div class="cursor-dot"></div>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+    </div>
+    <header class="site-header">
+      <a class="brand-link" href="../" aria-label="Levity Ltd home">
+        <img src="../assets/brand/Levity%20Logo.png" width="144" height="144" alt="">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="../">Home</a>
+        <a class="nav-link" href="https://levity.ltd/work">Work</a>
+        <a class="nav-link" href="https://levity.ltd/blog">Blog</a>
+        <a class="nav-link book-link" href="https://calendly.com/melissa-levity/30min">Book</a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-heading" aria-labelledby="work-title">
+        <h1 class="work-label" id="work-title" aria-label="Work">
+          <span class="work-letter" aria-hidden="true">W</span><span class="work-letter" aria-hidden="true">o</span><span class="work-letter" aria-hidden="true">r</span><span class="work-letter" aria-hidden="true">k</span>
+        </h1>
+      </section>
+
+      <section class="project-grid" aria-label="Levity project gallery">
+        <a class="project-card black-frame" href="https://www.bksharad.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BK Sharad website in a new tab">
+          <img class="project-visual dark offset-down-10" src="../assets/work/bb-shabab.png" width="3014" height="1132" alt="BB Shabab lettering in red and teal on black">
+          <div class="project-copy">
+            <h2>BK Sharad</h2>
+            <p class="project-type">Brand Identity and Web Design</p>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://www.sammyanzercomedy.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Sammy Anzer Comedy website in a new tab">
+          <img class="project-visual zoom-20" src="../assets/work/sanny-anzer.png" width="3001" height="1333" alt="Sammy Anzer graffiti-style lettering in orange, pink, and blue">
+          <div class="project-copy">
+            <h2>Sammy Anzer</h2>
+            <p class="project-type">Brand Identity and Web Design</p>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://melissalynnel.github.io/serenity/" target="_blank" rel="noopener noreferrer" aria-label="Open Melissa Leavenworth website in a new tab">
+          <img class="project-visual zoom-140" src="../assets/work/melissa-leavenworth.png" width="865" height="705" alt="Melissa Leavenworth script lettering on a rose background">
+          <div class="project-copy">
+            <h2>Melissa Leavenworth</h2>
+            <p class="project-type">Brand Identity and Web Design</p>
+          </div>
+        </a>
+      </section>
+    </main>
+    <script>
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
+      const workLetters = [...document.querySelectorAll(".work-letter")];
+      const pointer = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
+      const positions = Array.from({ length: 12 }, () => ({ ...pointer }));
+
+      const setPointerPosition = (x, y, shouldSnap = false) => {
+        pointer.x = x;
+        pointer.y = y;
+
+        if (!shouldSnap) return;
+
+        positions.forEach((position) => {
+          position.x = x;
+          position.y = y;
+        });
+      };
+
+      const updatePointer = (event) => {
+        setPointerPosition(event.clientX, event.clientY);
+      };
+
+      const updateTouchPointer = (event) => {
+        const touch = event.touches && event.touches[0];
+        if (!touch) return;
+        setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
+      };
+
+      const animateCursor = () => {
+        positions[0].x += (pointer.x - positions[0].x) * 0.22;
+        positions[0].y += (pointer.y - positions[0].y) * 0.22;
+
+        for (let index = 1; index < positions.length; index += 1) {
+          positions[index].x += (positions[index - 1].x - positions[index].x) * 0.2;
+          positions[index].y += (positions[index - 1].y - positions[index].y) * 0.2;
+        }
+
+        cursorDot.style.transform = `translate(${positions[0].x}px, ${positions[0].y}px)`;
+
+        cursorTrail.forEach((element, index) => {
+          element.style.transform = `translate(${positions[index + 1].x}px, ${positions[index + 1].y}px)`;
+        });
+
+        if (workLetters.length) {
+          const repelDistance = 150;
+
+          workLetters.forEach((letter) => {
+            const letterBounds = letter.getBoundingClientRect();
+            const letterCenterX = letterBounds.left + letterBounds.width / 2;
+            const letterCenterY = letterBounds.top + letterBounds.height / 2;
+            const deltaX = letterCenterX - pointer.x;
+            const deltaY = letterCenterY - pointer.y;
+            const distance = Math.hypot(deltaX, deltaY);
+
+            if (distance < repelDistance && distance > 0) {
+              const strength = (repelDistance - distance) / repelDistance;
+              const offsetX = (deltaX / distance) * strength * 12;
+              const offsetY = (deltaY / distance) * strength * 7;
+              letter.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            } else {
+              letter.style.transform = "translate(0, 0)";
+            }
+          });
+        }
+
+        requestAnimationFrame(animateCursor);
+      };
+
+      window.addEventListener("pointermove", updatePointer);
+      window.addEventListener("touchstart", updateTouchPointer, { passive: true });
+      window.addEventListener("touchmove", updateTouchPointer, { passive: true });
+      requestAnimationFrame(animateCursor);
+    </script>
+  </body>
+</html>
