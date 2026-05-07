@@ -75,6 +75,7 @@
         width: 144px;
         height: 144px;
         object-fit: contain;
+        animation: logo-float 6s ease-in-out infinite;
       }
 
       .nav-links {
@@ -113,19 +114,24 @@
       }
 
       main {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
         width: min(1120px, calc(100% - 40px));
+        height: calc(100dvh - 166px);
         margin: 0 auto;
         padding: 14px 0 24px;
       }
 
       .page-heading {
         display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: end;
         gap: 8px;
-        max-width: 760px;
         margin-bottom: 18px;
       }
 
       .work-label {
+        grid-column: 1 / span 2;
         margin: 0;
         color: var(--levity-limelight);
         font-size: 3rem;
@@ -135,10 +141,21 @@
         text-transform: uppercase;
       }
 
-      .work-letter {
+      .repel-letter {
         display: inline-block;
         transition: transform 0.16s ease-out;
         will-change: transform;
+      }
+
+      .details-heading {
+        grid-column: 3;
+        margin: 0;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
       }
 
       .project-grid {
@@ -146,6 +163,34 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
         width: 100%;
+        min-height: 0;
+      }
+
+      .project-list {
+        grid-column: 1 / span 2;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-content: start;
+        gap: 18px;
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding-right: 8px;
+        scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
+      }
+
+      .project-list::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .project-list::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+      }
+
+      .project-list::-webkit-scrollbar-thumb {
+        background: rgba(193, 255, 114, 0.7);
+        border-radius: 999px;
       }
 
       .project-card {
@@ -165,6 +210,42 @@
 
       .project-card.black-frame {
         background: #000000;
+      }
+
+      .project-card.melissa-card {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .hover-panel {
+        grid-column: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100%;
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.18);
+        transition: background 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .hover-panel p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 1rem;
+        font-weight: 800;
+        line-height: 1.35;
+        text-align: center;
+      }
+
+      .project-grid:has(.project-list .project-card:hover) .hover-panel,
+      .project-grid:has(.project-list .project-card:focus-visible) .hover-panel {
+        background: rgba(193, 255, 114, 0.6);
+        box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
       }
 
       .project-visual {
@@ -229,14 +310,35 @@
       }
 
       @media (max-width: 900px) {
-        .project-grid {
+        .page-heading {
+          grid-template-columns: 1fr;
+        }
+
+        .work-label {
+          grid-column: auto;
+        }
+
+        .project-grid,
+        .project-list {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-card.melissa-card,
+        .project-list,
+        .hover-panel {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .details-heading,
+        .hover-panel {
+          display: none;
         }
       }
 
       @media (max-width: 720px) {
         body {
-          overflow: auto;
+          overflow: hidden;
         }
 
         .site-header {
@@ -264,6 +366,7 @@
         }
 
         main {
+          height: calc(100dvh - 166px);
           width: min(100% - 28px, 1120px);
           padding-top: 30px;
         }
@@ -277,8 +380,29 @@
           gap: 18px;
         }
 
+        .project-list {
+          grid-template-columns: 1fr;
+        }
+
         .project-visual {
           height: 100%;
+        }
+      }
+
+      @keyframes logo-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .brand-link img {
+          animation: none;
         }
       }
 
@@ -341,46 +465,55 @@
         <a class="nav-link" href="../">Home</a>
         <a class="nav-link" href="https://levity.ltd/work">Work</a>
         <a class="nav-link" href="https://levity.ltd/blog">Blog</a>
-        <a class="nav-link book-link" href="https://calendly.com/melissa-levity/30min">Book</a>
+        <a class="nav-link book-link" href="https://calendly.com/melissa-levity/30min" target="_blank" rel="noopener noreferrer">Book</a>
       </nav>
     </header>
     <main>
       <section class="page-heading" aria-labelledby="work-title">
         <h1 class="work-label" id="work-title" aria-label="Work">
-          <span class="work-letter" aria-hidden="true">W</span><span class="work-letter" aria-hidden="true">o</span><span class="work-letter" aria-hidden="true">r</span><span class="work-letter" aria-hidden="true">k</span>
+          <span class="repel-letter" aria-hidden="true">W</span><span class="repel-letter" aria-hidden="true">o</span><span class="repel-letter" aria-hidden="true">r</span><span class="repel-letter" aria-hidden="true">k</span>
         </h1>
+        <h2 class="details-heading" aria-label="Details">
+          <span class="repel-letter" aria-hidden="true">D</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">t</span><span class="repel-letter" aria-hidden="true">a</span><span class="repel-letter" aria-hidden="true">i</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">s</span>
+        </h2>
       </section>
 
       <section class="project-grid" aria-label="Levity project gallery">
-        <a class="project-card black-frame" href="https://www.bksharad.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BK Sharad website in a new tab">
-          <img class="project-visual dark offset-down-10" src="../assets/work/bb-shabab.png" width="3014" height="1132" alt="BB Shabab lettering in red and teal on black">
-          <div class="project-copy">
-            <h2>BK Sharad</h2>
-            <p class="project-type">Brand Identity and Web Design</p>
-          </div>
-        </a>
+        <div class="project-list">
+          <a class="project-card black-frame" href="https://www.bksharad.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BK Sharad website in a new tab">
+            <img class="project-visual dark offset-down-10" src="../assets/work/bb-shabab.png" width="3014" height="1132" alt="BB Shabab lettering in red and teal on black">
+            <div class="project-copy">
+              <h2>BK Sharad</h2>
+              <p class="project-type">Brand Identity and Web Design</p>
+            </div>
+          </a>
 
-        <a class="project-card" href="https://www.sammyanzercomedy.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Sammy Anzer Comedy website in a new tab">
-          <img class="project-visual zoom-20" src="../assets/work/sanny-anzer.png" width="3001" height="1333" alt="Sammy Anzer graffiti-style lettering in orange, pink, and blue">
-          <div class="project-copy">
-            <h2>Sammy Anzer</h2>
-            <p class="project-type">Brand Identity and Web Design</p>
-          </div>
-        </a>
+          <a class="project-card" href="https://www.sammyanzercomedy.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Sammy Anzer Comedy website in a new tab">
+            <img class="project-visual zoom-20" src="../assets/work/sanny-anzer.png" width="3001" height="1333" alt="Sammy Anzer graffiti-style lettering in orange, pink, and blue">
+            <div class="project-copy">
+              <h2>Sammy Anzer</h2>
+              <p class="project-type">Brand Identity and Web Design</p>
+            </div>
+          </a>
 
-        <a class="project-card" href="https://melissalynnel.github.io/serenity/" target="_blank" rel="noopener noreferrer" aria-label="Open Melissa Leavenworth website in a new tab">
-          <img class="project-visual zoom-140" src="../assets/work/melissa-leavenworth.png" width="865" height="705" alt="Melissa Leavenworth script lettering on a rose background">
-          <div class="project-copy">
-            <h2>Melissa Leavenworth</h2>
-            <p class="project-type">Brand Identity and Web Design</p>
-          </div>
-        </a>
+          <a class="project-card melissa-card" href="https://melissalynnel.github.io/serenity/" target="_blank" rel="noopener noreferrer" aria-label="Open Melissa Leavenworth website in a new tab">
+            <img class="project-visual zoom-140" src="../assets/work/melissa-leavenworth.png" width="865" height="705" alt="Melissa Leavenworth script lettering on a rose background">
+            <div class="project-copy">
+              <h2>Melissa Leavenworth</h2>
+              <p class="project-type">Brand Identity and Web Design</p>
+            </div>
+          </a>
+        </div>
+
+        <aside class="hover-panel" aria-label="Project details">
+          <p>Hover over a project for more details.</p>
+        </aside>
       </section>
     </main>
     <script>
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
-      const workLetters = [...document.querySelectorAll(".work-letter")];
+      const repelLetters = [...document.querySelectorAll(".repel-letter")];
       const pointer = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
@@ -424,10 +557,10 @@
           element.style.transform = `translate(${positions[index + 1].x}px, ${positions[index + 1].y}px)`;
         });
 
-        if (workLetters.length) {
+        if (repelLetters.length) {
           const repelDistance = 150;
 
-          workLetters.forEach((letter) => {
+          repelLetters.forEach((letter) => {
             const letterBounds = letter.getBoundingClientRect();
             const letterCenterX = letterBounds.left + letterBounds.width / 2;
             const letterCenterY = letterBounds.top + letterBounds.height / 2;
