@@ -578,8 +578,6 @@
       const hoverPanel = document.querySelector(".hover-panel");
       const projectCards = [...document.querySelectorAll(".project-card")];
       const defaultHoverPanelMarkup = hoverPanel ? hoverPanel.innerHTML : "";
-      const clickSound = new Audio("../assets/audio/boop.wav");
-      clickSound.volume = 0.35;
       const pointer = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
@@ -606,13 +604,6 @@
         const touch = event.touches && event.touches[0];
         if (!touch) return;
         setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
-      };
-
-      const playClickSound = (event) => {
-        if (event.button && event.button !== 0) return;
-        const sound = clickSound.cloneNode();
-        sound.volume = clickSound.volume;
-        sound.play().catch(() => {});
       };
 
       const setProjectDetails = (projectCard) => {
@@ -685,7 +676,6 @@
       };
 
       window.addEventListener("pointermove", updatePointer);
-      window.addEventListener("pointerdown", playClickSound);
       window.addEventListener("touchstart", updateTouchPointer, { passive: true });
       window.addEventListener("touchmove", updateTouchPointer, { passive: true });
       requestAnimationFrame(animateCursor);
