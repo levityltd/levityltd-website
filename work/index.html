@@ -8,10 +8,10 @@
     <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
-    <link rel="preload" as="image" href="../assets/brand/Levity%20Logo.png">
-    <link rel="preload" as="image" href="../assets/work/sanny-anzer.png">
-    <link rel="preload" as="image" href="../assets/work/bb-shabab.png">
-    <link rel="preload" as="image" href="../assets/work/melissa-leavenworth.png">
+    <link rel="preload" as="image" href="../assets/brand/Levity%20Logo.webp">
+    <link rel="preload" as="image" href="../assets/work/sanny-anzer.webp">
+    <link rel="preload" as="image" href="../assets/work/bb-shabab.webp">
+    <link rel="preload" as="image" href="../assets/work/melissa-leavenworth.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
@@ -220,6 +220,7 @@
       .hover-panel {
         grid-column: 3;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         min-height: 100%;
@@ -240,6 +241,29 @@
         font-weight: 800;
         line-height: 1.35;
         text-align: center;
+      }
+
+      .hover-panel.is-filled {
+        align-items: flex-start;
+        justify-content: flex-start;
+        columns: 1;
+        overflow-y: auto;
+      }
+
+      .hover-panel.is-filled p {
+        display: block;
+        width: 100%;
+        break-inside: avoid;
+        column-span: none;
+        color: var(--levity-eggplant);
+        font-size: 0.86rem;
+        font-weight: 800;
+        line-height: 1.42;
+        text-align: left;
+      }
+
+      .hover-panel.is-filled p + p {
+        margin-top: 14px;
       }
 
       .project-grid:has(.project-list .project-card:hover) .hover-panel,
@@ -459,7 +483,7 @@
     </div>
     <header class="site-header">
       <a class="brand-link" href="../" aria-label="Levity Ltd home">
-        <img src="../assets/brand/Levity%20Logo.png" width="144" height="144" alt="">
+        <img src="../assets/brand/Levity%20Logo.webp" width="144" height="144" alt="">
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a class="nav-link" href="../">Home</a>
@@ -480,24 +504,24 @@
 
       <section class="project-grid" aria-label="Levity project gallery">
         <div class="project-list">
-          <a class="project-card black-frame" href="https://www.bksharad.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BK Sharad website in a new tab">
-            <img class="project-visual dark offset-down-10" src="../assets/work/bb-shabab.png" width="3014" height="1132" alt="BB Shabab lettering in red and teal on black">
+          <a class="project-card black-frame" href="https://www.bksharad.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BK Sharad website in a new tab" data-details-template="bk-sharad-details">
+            <img class="project-visual dark offset-down-10" src="../assets/work/bb-shabab.webp" width="3014" height="1132" alt="BB Shabab lettering in red and teal on black">
             <div class="project-copy">
               <h2>BK Sharad</h2>
               <p class="project-type">Brand Identity and Web Design</p>
             </div>
           </a>
 
-          <a class="project-card" href="https://www.sammyanzercomedy.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Sammy Anzer Comedy website in a new tab">
-            <img class="project-visual zoom-20" src="../assets/work/sanny-anzer.png" width="3001" height="1333" alt="Sammy Anzer graffiti-style lettering in orange, pink, and blue">
+          <a class="project-card" href="https://www.sammyanzercomedy.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Sammy Anzer Comedy website in a new tab" data-details-template="sammy-anzer-details">
+            <img class="project-visual zoom-20" src="../assets/work/sanny-anzer.webp" width="3001" height="1333" alt="Sammy Anzer graffiti-style lettering in orange, pink, and blue">
             <div class="project-copy">
               <h2>Sammy Anzer</h2>
               <p class="project-type">Brand Identity and Web Design</p>
             </div>
           </a>
 
-          <a class="project-card melissa-card" href="https://melissalynnel.github.io/serenity/" target="_blank" rel="noopener noreferrer" aria-label="Open Melissa Leavenworth website in a new tab">
-            <img class="project-visual zoom-140" src="../assets/work/melissa-leavenworth.png" width="865" height="705" alt="Melissa Leavenworth script lettering on a rose background">
+          <a class="project-card melissa-card" href="https://melissalynnel.github.io/serenity/" target="_blank" rel="noopener noreferrer" aria-label="Open Melissa Leavenworth website in a new tab" data-details-template="melissa-leavenworth-details">
+            <img class="project-visual zoom-140" src="../assets/work/melissa-leavenworth.webp" width="865" height="705" alt="Melissa Leavenworth script lettering on a rose background">
             <div class="project-copy">
               <h2>Melissa Leavenworth</h2>
               <p class="project-type">Brand Identity and Web Design</p>
@@ -509,11 +533,31 @@
           <p>Hover over a project for more details.</p>
         </aside>
       </section>
+
+      <template id="bk-sharad-details">
+        <p>Stand-up comedy and hardcore metal aesthetics don't usually share a stage, but then again, BK Sharad isn't your usual comedian.</p>
+        <p>A former emo hockey player turned first-generation Indian millennial punchline machine, BK has been slaying sets at 20+ comedy festivals nationwide, all with the kind of positive outlook that somehow hits harder coming from a guy who looks like he fronts a death metal band.</p>
+        <p>Levity built BK a brand identity and Squarespace website that results in a bold, high-contrast digital presence that's as visually intense as his stage persona. With seamless events functionality to keep fans locked in on where he's performing next, BK's brand is now as ready for the spotlight as he is.</p>
+      </template>
+      <template id="sammy-anzer-details">
+        <p>Part storyteller, part cultural investigator, Sammy Anzer isn't just here to make you laugh, he's here to make you think.</p>
+        <p>A multi-racial comedian from Queens, Sammy blends slick wit with cultural empathy in a way that feels sharp and inviting all at once. He's written for Kevin Hart's LOL network, hit #1 on iTunes, and raised over $20,000 for St. Jude's Children's Hospital because changing the world and getting laughs don't have to be mutually exclusive.</p>
+        <p>Levity built Sammy a brand identity and Squarespace website that matches his energy: smart, warm, and impossible to look away from. With seamless events functionality to keep his audience close, Sammy's brand is as ready to move the needle as he is.</p>
+      </template>
+      <template id="melissa-leavenworth-details">
+        <p>Melissa Leavenworth has been making the Internet more fun since before most people knew it needed saving.</p>
+        <p>Inspired by early MySpace aesthetics and the Sailor Moon era, this self-taught coder turned designer spent years creating in the entertainment space before setting her sights on San Francisco's startup world.</p>
+        <p>Her obsession with bringing joy and personality back to the web is baked into everything she touches including Levity itself.</p>
+        <p>Her own portfolio site is a showcase of Melissa's creative vision: proof that design can be bold, nostalgic, and unique all at once.</p>
+      </template>
     </main>
     <script>
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
       const repelLetters = [...document.querySelectorAll(".repel-letter")];
+      const hoverPanel = document.querySelector(".hover-panel");
+      const projectCards = [...document.querySelectorAll(".project-card")];
+      const defaultHoverPanelMarkup = hoverPanel ? hoverPanel.innerHTML : "";
       const pointer = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
@@ -541,6 +585,35 @@
         if (!touch) return;
         setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
       };
+
+      const setProjectDetails = (projectCard) => {
+        if (!hoverPanel) return;
+
+        const templateId = projectCard.dataset.detailsTemplate;
+        const template = templateId ? document.getElementById(templateId) : null;
+
+        if (template) {
+          hoverPanel.innerHTML = template.innerHTML;
+          hoverPanel.classList.add("is-filled");
+          return;
+        }
+
+        hoverPanel.innerHTML = defaultHoverPanelMarkup;
+        hoverPanel.classList.remove("is-filled");
+      };
+
+      const resetProjectDetails = () => {
+        if (!hoverPanel) return;
+        hoverPanel.innerHTML = defaultHoverPanelMarkup;
+        hoverPanel.classList.remove("is-filled");
+      };
+
+      projectCards.forEach((projectCard) => {
+        projectCard.addEventListener("mouseenter", () => setProjectDetails(projectCard));
+        projectCard.addEventListener("focus", () => setProjectDetails(projectCard));
+        projectCard.addEventListener("mouseleave", resetProjectDetails);
+        projectCard.addEventListener("blur", resetProjectDetails);
+      });
 
       const animateCursor = () => {
         positions[0].x += (pointer.x - positions[0].x) * 0.22;
