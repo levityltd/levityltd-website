@@ -296,6 +296,11 @@
         box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
       }
 
+      .blog-grid.has-selected-post .hover-panel {
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.18);
+      }
+
       @media (max-width: 900px) {
         .page-heading {
           grid-template-columns: 1fr;
@@ -471,6 +476,7 @@
       const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
       const repelLetters = [...document.querySelectorAll(".repel-letter")];
       const hoverPanel = document.querySelector(".hover-panel");
+      const blogGrid = document.querySelector(".blog-grid");
       const postCards = [...document.querySelectorAll(".post-card")];
       const defaultHoverPanelMarkup = hoverPanel ? hoverPanel.innerHTML : "";
       let selectedPostCard = null;
@@ -527,6 +533,9 @@
 
       const selectPostCard = (postCard) => {
         selectedPostCard = postCard;
+        if (blogGrid) {
+          blogGrid.classList.add("has-selected-post");
+        }
         postCards.forEach((card) => {
           card.classList.toggle("is-selected", card === postCard);
         });
