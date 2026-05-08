@@ -12,6 +12,7 @@
     <link rel="preload" as="image" href="../assets/work/sanny-anzer.webp">
     <link rel="preload" as="image" href="../assets/work/bb-shabab.webp">
     <link rel="preload" as="image" href="../assets/work/melissa-leavenworth.webp">
+    <link rel="preload" as="image" href="../assets/work/jokechella-7.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
@@ -142,7 +143,7 @@
         grid-column: 1 / span 2;
         margin: 0;
         color: var(--levity-limelight);
-        font-size: 3rem;
+        font-size: 2.75rem;
         font-weight: 800;
         letter-spacing: 0.08em;
         line-height: 1;
@@ -218,6 +219,10 @@
 
       .project-card.black-frame {
         background: #000000;
+      }
+
+      .project-card.white-frame {
+        background: #ffffff;
       }
 
       .project-card.melissa-card {
@@ -320,6 +325,12 @@
       .project-visual.zoom-140 {
         filter: brightness(1.1);
         transform: scale(1.4);
+        transform-origin: top center;
+      }
+
+      .project-visual.scale-85 {
+        object-position: top center;
+        transform: translate(6px, 2px) scale(0.85);
         transform-origin: top center;
       }
 
@@ -546,6 +557,14 @@
               <p class="project-type">Brand Identity and Web Design</p>
             </div>
           </a>
+
+          <article class="project-card white-frame" tabindex="0" aria-label="View Jokechella 7 project details" data-details-template="jokechella-7-details">
+            <img class="project-visual scale-85" src="../assets/work/jokechella-7.webp" width="1800" height="1013" alt="Jokechella 7 Ultimate Comedy Festival logo in pink, blue, and black on white">
+            <div class="project-copy">
+              <h2>Jokechella 7</h2>
+              <p class="project-type">Creative Direction, Merchandising and Festival Marketing</p>
+            </div>
+          </article>
         </div>
 
         <aside class="hover-panel" aria-label="Project details">
@@ -569,6 +588,12 @@
         <p>Levity built Melissa a personal portfolio that channels her lifelong obsession with making the Internet more fun: bold, nostalgic, and endlessly surprising. Equal parts design showcase and origin story, the site is a living example of what Levity stands for: unique personality-driven design.</p>
         <h3 class="detail-subtitle">Client</h3>
         <p>Melissa Leavenworth has been making the Internet more fun since before most people knew it needed saving. Inspired by early MySpace aesthetics and the Sailor Moon era, this self-taught coder turned designer spent years creating in the entertainment space before setting her sights on San Francisco's startup world. Her obsession with bringing joy and personality back to the web is baked into everything she touches, including Levity itself.</p>
+      </template>
+      <template id="jokechella-7-details">
+        <p>Levity shaped the creative direction for Jokechella 7, building a festival look and feel that could carry across stage visuals, promotion, merch, and the on-site experience.</p>
+        <p>The work extended beyond visual direction into merchandising, operations, and marketing support, helping the sold-out three-day festival feel cohesive from first announcement through showtime while accruing over $25k in revenue.</p>
+        <h3 class="detail-subtitle">Client</h3>
+        <p>The Comedy Fort is a Fort Collins comedy club and live entertainment venue at the center of Northern Colorado's stand-up scene. The club brings touring headliners, local showcases, new material nights, and festival programming like Jokechella to an intimate downtown room.</p>
       </template>
     </main>
     <script>
