@@ -45,6 +45,31 @@
         font-family: var(--font-body);
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.8px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.68) 0 1px, transparent 1.6px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.46) 0 1.4px, transparent 2.2px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.78) 0 0.8px, transparent 1.5px);
+        background-position:
+          8% 18%,
+          62% 34%,
+          36% 76%,
+          84% 92%;
+        background-size:
+          118px 132px,
+          164px 148px,
+          226px 198px,
+          94px 112px;
+        opacity: 0.42;
+        animation: sparkle-rise 34s linear infinite;
+      }
+
       .hero-mark {
         display: block;
         position: absolute;
@@ -180,8 +205,30 @@
         }
       }
 
+      @keyframes sparkle-rise {
+        0% {
+          background-position:
+            8% 118%,
+            62% 134%,
+            36% 176%,
+            84% 192%;
+        }
+
+        100% {
+          background-position:
+            8% -18%,
+            62% -34%,
+            36% -76%,
+            84% -92%;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .hero-mark {
+          animation: none;
+        }
+
+        body::before {
           animation: none;
         }
       }

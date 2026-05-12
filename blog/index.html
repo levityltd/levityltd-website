@@ -42,11 +42,38 @@
         font-family: var(--font-body);
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.8px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.68) 0 1px, transparent 1.6px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.46) 0 1.4px, transparent 2.2px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.78) 0 0.8px, transparent 1.5px);
+        background-position:
+          8% 18%,
+          62% 34%,
+          36% 76%,
+          84% 92%;
+        background-size:
+          118px 132px,
+          164px 148px,
+          226px 198px,
+          94px 112px;
+        opacity: 0.42;
+        animation: sparkle-rise 34s linear infinite;
+      }
+
       a {
         color: inherit;
       }
 
       .site-header {
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -115,6 +142,8 @@
       }
 
       main {
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-rows: auto minmax(0, 1fr);
         width: min(1120px, calc(100% - 40px));
@@ -340,24 +369,40 @@
 
       @media (max-width: 720px) {
         .site-header {
+          flex-direction: row;
           width: min(100% - 28px, 1120px);
-          align-items: flex-start;
-        }
-
-        .nav-links {
+          align-items: center;
           gap: 8px;
         }
 
+        .brand-link {
+          flex: 0 0 auto;
+          transform: translateX(-12px);
+        }
+
+        .brand-link img {
+          width: 96px;
+          height: 96px;
+        }
+
+        .nav-links {
+          flex: 1 1 auto;
+          gap: 6px;
+          margin-top: 0;
+          padding: 6px;
+        }
+
         .nav-link {
-          min-height: 40px;
-          padding: 0 14px;
-          font-size: 0.88rem;
+          min-height: 38px;
+          padding: 0 10px;
+          font-size: 0.82rem;
         }
 
         main {
           width: min(100% - 28px, 1120px);
-          height: calc(100dvh - 166px);
-          padding-top: 30px;
+          height: calc(100dvh - 172px);
+          margin-top: -4px;
+          padding-top: 12px;
         }
 
         .page-heading {
@@ -381,8 +426,30 @@
         }
       }
 
+      @keyframes sparkle-rise {
+        0% {
+          background-position:
+            8% 118%,
+            62% 134%,
+            36% 176%,
+            84% 192%;
+        }
+
+        100% {
+          background-position:
+            8% -18%,
+            62% -34%,
+            36% -76%,
+            84% -92%;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .brand-link img {
+          animation: none;
+        }
+
+        body::before {
           animation: none;
         }
       }
