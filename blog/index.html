@@ -204,7 +204,16 @@
         min-height: 0;
         overflow-y: auto;
         overscroll-behavior: contain;
-        padding-right: 8px;
+        padding: 14px 14px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 12px;
+        background: rgba(177, 161, 237, 0.96);
+        box-shadow:
+          0 0 10px rgba(255, 255, 255, 0.9),
+          0 0 24px rgba(255, 255, 255, 0.62),
+          0 0 46px rgba(193, 255, 114, 0.42),
+          0 0 72px rgba(193, 255, 114, 0.22),
+          inset 0 0 18px rgba(255, 255, 255, 0.24);
         scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
       }
 
@@ -213,6 +222,7 @@
       }
 
       .post-list::-webkit-scrollbar-track {
+        margin-block: 22px;
         background: rgba(255, 255, 255, 0.12);
         border-radius: 999px;
       }
@@ -272,12 +282,17 @@
         overflow-y: auto;
         overscroll-behavior: contain;
         padding: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.26);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 12px;
+        background: rgba(177, 161, 237, 0.96);
         -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
-        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.18);
+        box-shadow:
+          0 0 10px rgba(255, 255, 255, 0.9),
+          0 0 24px rgba(255, 255, 255, 0.62),
+          0 0 46px rgba(193, 255, 114, 0.42),
+          0 0 72px rgba(193, 255, 114, 0.22),
+          inset 0 0 18px rgba(255, 255, 255, 0.24);
         scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
         transition: background 0.2s ease, box-shadow 0.2s ease;
       }
@@ -287,6 +302,7 @@
       }
 
       .hover-panel::-webkit-scrollbar-track {
+        margin-block: 22px;
         background: rgba(255, 255, 255, 0.12);
         border-radius: 999px;
       }
@@ -330,12 +346,10 @@
       .blog-grid:has(.post-card:hover) .hover-panel,
       .blog-grid:has(.post-card:focus-visible) .hover-panel {
         background: rgba(193, 255, 114, 0.6);
-        box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
       }
 
       .blog-grid.has-selected-post .hover-panel {
-        background: rgba(255, 255, 255, 0.68);
-        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.18);
+        background: rgba(193, 255, 114, 0.6);
       }
 
       @media (max-width: 900px) {
@@ -368,9 +382,16 @@
       }
 
       @media (max-width: 720px) {
+        body {
+          width: 100vw;
+          max-width: 100vw;
+          overflow: hidden;
+        }
+
         .site-header {
           flex-direction: row;
-          width: min(100% - 28px, 1120px);
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
           align-items: center;
           gap: 8px;
         }
@@ -399,19 +420,74 @@
         }
 
         main {
-          width: min(100% - 28px, 1120px);
-          height: calc(100dvh - 172px);
-          margin-top: -4px;
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
+          height: calc(100dvh - 118px);
+          margin-top: -24px;
           padding-top: 12px;
+          padding-bottom: 14px;
         }
 
         .page-heading {
-          margin-bottom: 28px;
+          margin-bottom: 12px;
         }
 
-        .blog-grid,
+        .blog-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto minmax(0, 1fr);
+          gap: 18px;
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
+
         .post-list {
           grid-template-columns: 1fr;
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          height: clamp(118px, 17dvh, 150px);
+          padding: 12px 12px 18px;
+        }
+
+        .post-card {
+          min-width: 0;
+          max-width: 100%;
+        }
+
+        .hover-panel {
+          display: block;
+          grid-column: auto;
+          grid-row: auto;
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          height: auto;
+          min-height: 0;
+          max-height: none;
+          padding: 18px;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
+        .hover-panel.is-filled {
+          display: block;
+          columns: auto;
+        }
+
+        .hover-panel p {
+          max-width: 100%;
+          font-size: 0.9rem;
+          line-height: 1.32;
+          overflow-wrap: anywhere;
+        }
+
+        .hover-panel.is-filled p {
+          width: auto;
+          font-size: 0.72rem;
+          line-height: 1.38;
+          white-space: normal;
+          word-break: break-word;
         }
       }
 
@@ -552,9 +628,13 @@
       const repelLetters = [...document.querySelectorAll(".repel-letter")];
       const hoverPanel = document.querySelector(".hover-panel");
       const blogGrid = document.querySelector(".blog-grid");
+      const postList = document.querySelector(".post-list");
       const postCards = [...document.querySelectorAll(".post-card")];
       const defaultHoverPanelMarkup = hoverPanel ? hoverPanel.innerHTML : "";
+      const mobileDetailsQuery = window.matchMedia("(max-width: 720px)");
       let selectedPostCard = null;
+      let activeMobilePostCard = null;
+      let mobileDetailsFrame = 0;
       const pointer = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
@@ -617,6 +697,50 @@
         setPostDetails(postCard);
       };
 
+      const getMostVisiblePostCard = () => {
+        if (!postList || !postCards.length) return null;
+
+        const listBounds = postList.getBoundingClientRect();
+        let mostVisibleCard = postCards[0];
+        let largestVisibleArea = 0;
+
+        postCards.forEach((postCard) => {
+          const cardBounds = postCard.getBoundingClientRect();
+          const visibleHeight = Math.min(cardBounds.bottom, listBounds.bottom) - Math.max(cardBounds.top, listBounds.top);
+          const visibleWidth = Math.min(cardBounds.right, listBounds.right) - Math.max(cardBounds.left, listBounds.left);
+          const visibleArea = Math.max(0, visibleHeight) * Math.max(0, visibleWidth);
+
+          if (visibleArea > largestVisibleArea) {
+            largestVisibleArea = visibleArea;
+            mostVisibleCard = postCard;
+          }
+        });
+
+        return mostVisibleCard;
+      };
+
+      const updateMobilePostDetails = () => {
+        mobileDetailsFrame = 0;
+        if (!mobileDetailsQuery.matches) return;
+
+        const mostVisibleCard = getMostVisiblePostCard();
+        if (!mostVisibleCard || mostVisibleCard === activeMobilePostCard) return;
+
+        activeMobilePostCard = mostVisibleCard;
+        if (blogGrid) {
+          blogGrid.classList.add("has-selected-post");
+        }
+        postCards.forEach((card) => {
+          card.classList.toggle("is-selected", card === mostVisibleCard);
+        });
+        setPostDetails(mostVisibleCard);
+      };
+
+      const requestMobilePostDetailsUpdate = () => {
+        if (mobileDetailsFrame) return;
+        mobileDetailsFrame = requestAnimationFrame(updateMobilePostDetails);
+      };
+
       postCards.forEach((postCard) => {
         postCard.addEventListener("mouseenter", () => setPostDetails(postCard));
         postCard.addEventListener("focus", () => setPostDetails(postCard));
@@ -671,6 +795,25 @@
       window.addEventListener("pointermove", updatePointer);
       window.addEventListener("touchstart", updateTouchPointer, { passive: true });
       window.addEventListener("touchmove", updateTouchPointer, { passive: true });
+      postList?.addEventListener("scroll", requestMobilePostDetailsUpdate, { passive: true });
+      window.addEventListener("resize", () => {
+        activeMobilePostCard = null;
+        requestMobilePostDetailsUpdate();
+      });
+      mobileDetailsQuery.addEventListener("change", () => {
+        activeMobilePostCard = null;
+        if (mobileDetailsQuery.matches) {
+          requestMobilePostDetailsUpdate();
+        } else {
+          selectedPostCard = null;
+          postCards.forEach((card) => {
+            card.classList.remove("is-selected");
+          });
+          blogGrid?.classList.remove("has-selected-post");
+          resetPostDetails();
+        }
+      });
+      requestMobilePostDetailsUpdate();
       requestAnimationFrame(animateCursor);
     </script>
   </body>
