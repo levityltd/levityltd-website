@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jokechella 7 | Levity Ltd</title>
+    <link rel="icon" href="../../assets/cloud-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../../assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="preload" as="image" href="../../assets/brand/Levity%20Logo.webp">
+    <link rel="preload" as="image" href="../../assets/work/jokechella-7.webp">
+    <link rel="preload" as="image" href="../../assets/work/jokechella-7/beach-ball.png">
+    <link rel="preload" as="image" href="../../assets/work/jokechella-7/tank-top-specs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --levity-lilac: #b1a1ed;
+        --levity-limelight: #c1ff72;
+        --levity-eggplant: #564f74;
+        --levity-fog: #d6d4d8;
+        --levity-cloud: #fbfaf0;
+        --font-body: "Nunito", system-ui, sans-serif;
+        --font-accent: "Satisfy", cursive;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+        background: var(--levity-lilac);
+      }
+
+      body {
+        height: 100dvh;
+        min-height: 100dvh;
+        margin: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(193, 255, 114, 0.28), transparent 34rem),
+          linear-gradient(180deg, var(--levity-lilac), #9586d5 68%, var(--levity-eggplant));
+        color: var(--levity-cloud);
+        cursor: none;
+        font-family: var(--font-body);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.8px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.68) 0 1px, transparent 1.6px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.46) 0 1.4px, transparent 2.2px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.78) 0 0.8px, transparent 1.5px);
+        background-position:
+          8% 18%,
+          62% 34%,
+          36% 76%,
+          84% 92%;
+        background-size:
+          118px 132px,
+          164px 148px,
+          226px 198px,
+          94px 112px;
+        opacity: 0.42;
+        animation: sparkle-rise 48s linear infinite;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 14px 0 8px;
+      }
+
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transform: translateX(-18px);
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .brand-link img {
+        width: 173px;
+        height: 173px;
+        object-fit: contain;
+        animation: logo-float 6s ease-in-out infinite;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.2);
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.13);
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .book-link {
+        background: var(--levity-limelight);
+        color: var(--levity-eggplant);
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible,
+      .back-link:hover,
+      .back-link:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
+        outline: none;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        width: min(1120px, calc(100% - 40px));
+        height: calc(100dvh - 142px);
+        max-height: calc(100dvh - 142px);
+        margin: -24px auto 0;
+        padding: 4px 0 72px;
+        overflow: visible;
+      }
+
+      .page-heading {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: end;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .work-label {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        margin: 0;
+        color: var(--levity-limelight);
+        font-size: 2.75rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .repel-letter {
+        display: inline-block;
+        transition: transform 0.16s ease-out;
+        will-change: transform;
+      }
+
+      .project-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: 18px;
+        width: 100%;
+        min-height: 0;
+        align-self: start;
+        align-items: stretch;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+      }
+
+      .project-media,
+      .summary-panel,
+      .detail-panel {
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 12px;
+        background: rgba(177, 161, 237, 0.96);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow:
+          0 0 10px rgba(255, 255, 255, 0.9),
+          0 0 24px rgba(255, 255, 255, 0.62),
+          0 0 46px rgba(193, 255, 114, 0.42),
+          0 0 72px rgba(193, 255, 114, 0.22),
+          inset 0 0 18px rgba(255, 255, 255, 0.24);
+      }
+
+      .project-sidebar {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+        min-height: 0;
+      }
+
+      .project-media,
+      .summary-panel,
+      .detail-panel {
+        padding: 14px;
+      }
+
+      .project-frame {
+        display: grid;
+        place-items: center;
+        min-height: 200px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .project-frame img {
+        display: block;
+        width: min(100%, 360px);
+        height: auto;
+        transform: scale(0.9);
+        transform-origin: center;
+      }
+
+      .summary-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .summary-heading,
+      .detail-heading {
+        margin: 0;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .summary-copy,
+      .detail-copy {
+        display: grid;
+        gap: 14px;
+      }
+
+      .detail-section {
+        display: grid;
+        gap: 8px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .detail-section:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .detail-section summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        color: #ffffff;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .detail-section summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .detail-section summary::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-right: 2px solid var(--levity-limelight);
+        border-bottom: 2px solid var(--levity-limelight);
+        transform: rotate(45deg) translateY(-2px);
+        transform-origin: center;
+        transition: transform 0.18s ease;
+      }
+
+      .detail-section[open] summary::after {
+        transform: rotate(225deg) translateY(-2px);
+      }
+
+      .detail-section h3 {
+        margin: 0;
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .detail-subheading {
+        margin: 18px 0 2px;
+        color: var(--levity-limelight);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .summary-copy p,
+      .detail-copy p {
+        margin: 0;
+        color: var(--levity-eggplant);
+        font-size: 0.92rem;
+        font-weight: 800;
+        line-height: 1.42;
+      }
+
+      .detail-section > p + figure,
+      .detail-section > p + .social-asset-grid,
+      .detail-section > p + .sample-grid {
+        margin-top: 8px;
+      }
+
+      .project-kicker,
+      .meta-label {
+        margin: 0;
+        color: var(--levity-limelight);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+        height: var(--project-sidebar-height, auto);
+        max-height: var(--project-sidebar-height, none);
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
+      }
+
+      .detail-panel::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .detail-panel::-webkit-scrollbar-track {
+        margin-block: 22px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+      }
+
+      .sample-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        align-items: stretch;
+        column-gap: 14px;
+      }
+
+      .sample-stack {
+        display: grid;
+        gap: 8px;
+        align-content: start;
+      }
+
+      .sample-card {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 4px;
+        margin: 0;
+        min-height: 0;
+      }
+
+      .sample-card.featured {
+        grid-column: 1;
+      }
+
+      .sample-frame {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .sample-card:not(.featured) .sample-frame {
+        height: clamp(150px, 17vw, 188px);
+        padding: 10px;
+      }
+
+      .sample-card.spec-card .sample-frame {
+        height: clamp(210px, 24vw, 260px);
+      }
+
+      .sample-card.featured .sample-frame {
+        height: 100%;
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .sample-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .sample-card.featured img {
+        max-height: 520px;
+        object-fit: cover;
+      }
+
+      .sample-card:not(.featured) img {
+        width: 92%;
+        height: 92%;
+        object-fit: contain;
+      }
+
+      .sample-card.spec-card img {
+        transform: translateY(-10px);
+      }
+
+      .sample-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .social-asset-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+          "square tall"
+          "banner tall";
+        gap: 14px;
+        align-items: start;
+      }
+
+      .social-card.square-card {
+        grid-area: square;
+      }
+
+      .social-card.tall {
+        grid-area: tall;
+      }
+
+      .social-card.wide-card {
+        grid-area: banner;
+      }
+
+      .social-card {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+      }
+
+      .social-frame {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #000000;
+        aspect-ratio: 9 / 16;
+      }
+
+      .social-frame.square {
+        aspect-ratio: 1 / 1;
+      }
+
+      .social-frame.wide {
+        aspect-ratio: 16 / 9;
+      }
+
+      .social-frame video,
+      .social-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .social-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .poster-card {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+      }
+
+      .poster-frame {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #ffffff;
+        aspect-ratio: 3300 / 5100;
+        max-height: 560px;
+      }
+
+      .poster-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .poster-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .detail-panel::-webkit-scrollbar-thumb {
+        background: rgba(193, 255, 114, 0.7);
+        border-radius: 999px;
+      }
+
+      .meta-list {
+        display: grid;
+        gap: 14px;
+        margin: 0;
+      }
+
+      .meta-list div {
+        display: grid;
+        gap: 4px;
+      }
+
+      .meta-list dd {
+        margin: 0;
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .back-link {
+        display: inline-flex;
+        grid-column: 3;
+        grid-row: 1;
+        align-items: center;
+        justify-content: center;
+        justify-self: end;
+        min-height: 42px;
+        width: fit-content;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.13);
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-decoration: none;
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      @media (max-width: 900px) {
+        .project-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .work-label,
+        .project-sidebar,
+        .detail-panel {
+          grid-column: auto;
+        }
+
+        .back-link {
+          grid-column: auto;
+          grid-row: auto;
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          width: 100vw;
+          max-width: 100vw;
+          height: auto;
+          overflow: auto;
+        }
+
+        .site-header {
+          flex-direction: row;
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
+          align-items: center;
+          gap: 8px;
+        }
+
+        .brand-link {
+          flex: 0 0 auto;
+          transform: translateX(-12px);
+        }
+
+        .brand-link img {
+          width: 96px;
+          height: 96px;
+        }
+
+        .nav-links {
+          flex: 1 1 auto;
+          gap: 6px;
+          margin-top: 0;
+          padding: 6px;
+        }
+
+        .nav-link {
+          min-height: 38px;
+          padding: 0 10px;
+          font-size: 0.82rem;
+        }
+
+        main {
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
+          height: auto;
+          max-height: none;
+          margin-top: -24px;
+          padding-top: 12px;
+          padding-bottom: 28px;
+          overflow: visible;
+        }
+
+        .page-heading {
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: 12px;
+          margin-bottom: 12px;
+        }
+
+        .work-label {
+          grid-column: auto;
+          grid-row: auto;
+          font-size: 1.55rem;
+        }
+
+        .back-link {
+          grid-column: auto;
+          grid-row: auto;
+          min-height: 34px;
+          padding: 0 13px;
+          font-size: 0.78rem;
+        }
+
+        .project-media,
+        .summary-panel,
+        .detail-panel {
+          padding: 12px;
+        }
+
+        .detail-panel {
+          height: clamp(360px, 58svh, 620px);
+          max-height: clamp(360px, 58svh, 620px);
+          overflow-y: auto;
+        }
+
+        .project-frame {
+          min-height: 160px;
+        }
+
+        .summary-copy p,
+        .detail-copy p {
+          font-size: 0.84rem;
+        }
+
+        .sample-grid {
+          grid-template-columns: 1fr;
+          row-gap: 8px;
+        }
+
+        .social-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .social-asset-grid {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "square"
+            "banner"
+            "tall";
+        }
+
+        .sample-card.featured {
+          grid-column: auto;
+        }
+
+        .sample-stack {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sample-card:not(.featured) .sample-frame,
+        .sample-card.spec-card .sample-frame {
+          height: clamp(150px, 34vw, 210px);
+        }
+
+        .sample-card.spec-card img {
+          transform: none;
+        }
+
+        .sample-frame,
+        .sample-card.featured .sample-frame {
+          min-height: 190px;
+        }
+      }
+
+      @keyframes logo-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes sparkle-rise {
+        0% {
+          background-position:
+            8% 118%,
+            62% 134%,
+            36% 176%,
+            84% 192%;
+        }
+
+        100% {
+          background-position:
+            8% -18%,
+            62% -34%,
+            36% -76%,
+            84% -92%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .brand-link img,
+        body::before {
+          animation: none;
+        }
+      }
+
+      .cursor-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .cursor-dot,
+      .cursor-trail {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.9),
+          0 0 12px rgba(255, 194, 236, 0.8),
+          0 0 18px rgba(193, 255, 114, 0.7);
+        transform: translate(-100px, -100px);
+        transition: transform 0.02s linear;
+      }
+
+      .cursor-trail {
+        width: 6px;
+        height: 6px;
+        opacity: 0.7;
+        filter: blur(0.2px);
+      }
+
+      @media (pointer: coarse) {
+        body {
+          cursor: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-layer" aria-hidden="true">
+      <div class="cursor-dot"></div>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+    </div>
+    <header class="site-header">
+      <a class="brand-link" href="../../" aria-label="Levity Ltd home">
+        <img src="../../assets/brand/Levity%20Logo.webp" width="173" height="173" alt="">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="../../">Home</a>
+        <a class="nav-link" href="../">Work</a>
+        <a class="nav-link" href="../../blog/">Blog</a>
+        <a class="nav-link book-link" href="https://calendly.com/melissa-levity/30min" target="_blank" rel="noopener noreferrer">Book</a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-heading" aria-labelledby="work-title">
+        <h1 class="work-label" id="work-title" aria-label="Work: Jokechella 7">
+          <span class="repel-letter" aria-hidden="true">W</span><span class="repel-letter" aria-hidden="true">o</span><span class="repel-letter" aria-hidden="true">r</span><span class="repel-letter" aria-hidden="true">k</span><span aria-hidden="true">: </span><span class="repel-letter" aria-hidden="true">J</span><span class="repel-letter" aria-hidden="true">o</span><span class="repel-letter" aria-hidden="true">k</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">c</span><span class="repel-letter" aria-hidden="true">h</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">a</span><span aria-hidden="true"> </span><span class="repel-letter" aria-hidden="true">7</span>
+        </h1>
+        <a class="back-link" href="../">Back to Work</a>
+      </section>
+
+      <section class="project-layout" aria-label="Jokechella 7 project details">
+        <div class="project-sidebar">
+          <article class="project-media" aria-label="Jokechella 7 logo">
+            <div class="project-frame">
+              <img src="../../assets/work/jokechella-7.webp" width="1800" height="1013" alt="Jokechella 7 Ultimate Comedy Festival logo in pink, blue, and black on white">
+            </div>
+          </article>
+
+          <aside class="summary-panel" aria-label="Project summary">
+            <div>
+              <p class="project-kicker">Creative Direction, Merchandising and Festival Marketing</p>
+            </div>
+            <div class="summary-copy">
+              <p>Levity shaped the creative direction for Jokechella 7, building a festival look and feel that could carry across stage visuals, promotion, merch, and the on-site experience.</p>
+            </div>
+            <dl class="meta-list">
+              <div>
+                <dt class="meta-label">Client</dt>
+                <dd>The Comedy Fort</dd>
+              </div>
+              <div>
+                <dt class="meta-label">Project</dt>
+                <dd>Three-day comedy festival campaign</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <article class="detail-panel" aria-label="Project details">
+          <h2 class="detail-heading">Details</h2>
+          <div class="detail-copy">
+            <details class="detail-section" aria-labelledby="creative-direction-heading">
+              <summary><h3 id="creative-direction-heading">Creative Direction</h3></summary>
+              <p>Directed a festival identity system that could move between digital promotion, venue materials, stage presence, and merch without losing the event's loud, playful comedy-festival energy. Worked with partner vendors to facilitate a great festival experience and collaborated with a contracted graphic designer to develop the event logo and core look and feel.</p>
+            </details>
+            <details class="detail-section" aria-labelledby="marketing-heading">
+              <summary><h3 id="marketing-heading">Festival Marketing</h3></summary>
+              <p>Built an integrated marketing campaign that contributed to the festival sell-out, keeping the promotional language and visual presentation cohesive from first announcement through showtime.</p>
+            </details>
+            <details class="detail-section" aria-labelledby="print-poster-heading">
+              <summary><h3 id="print-poster-heading">Print Poster</h3></summary>
+              <p>Provided design direction for the festival poster system, shaping how the multi-day lineup, sponsor marks, and ticket information should work within the bright beach-party identity.</p>
+              <figure class="poster-card">
+                <div class="poster-frame">
+                  <img src="../../assets/work/jokechella-7/print-poster.jpeg" width="3300" height="5100" alt="Jokechella 7 print poster with schedule, sponsors, and ticket information">
+                </div>
+                <figcaption>Print poster with schedule and sponsor lockups.</figcaption>
+              </figure>
+            </details>
+            <details class="detail-section" aria-labelledby="merchandising-heading">
+              <summary><h3 id="merchandising-heading">Merchandising</h3></summary>
+              <p>Designed the merchandise using the event logo developed by the contracted graphic designer, extending the Jokechella 7 look into sellable festival goods and on-site materials so the event felt complete beyond the stage lineup.</p>
+              <div class="sample-grid" aria-label="Jokechella 7 merchandise examples">
+                <figure class="sample-card featured">
+                  <div class="sample-frame">
+                    <img src="../../assets/work/jokechella-7/event-photo.jpg" width="1200" height="1600" alt="Jokechella 7 event photo">
+                  </div>
+                  <figcaption>Merchandise in use at the festival.</figcaption>
+                </figure>
+                <div class="sample-stack">
+                  <figure class="sample-card ball-card">
+                    <div class="sample-frame">
+                      <img src="../../assets/work/jokechella-7/beach-ball.png" width="1023" height="801" alt="Jokechella 7 branded blue and white beach ball mockup">
+                    </div>
+                    <figcaption>Branded beach ball merch.</figcaption>
+                  </figure>
+                  <figure class="sample-card spec-card">
+                    <div class="sample-frame">
+                      <img src="../../assets/work/jokechella-7/tank-top-specs.png" width="1008" height="1157" alt="Jokechella 7 white tank top production specs with blue and pink logo placement">
+                    </div>
+                    <figcaption>Tank top merch production specs.</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </details>
+            <details class="detail-section" aria-labelledby="social-media-heading">
+              <summary><h3 id="social-media-heading">Social Media</h3></summary>
+              <p>Provided design direction for static social assets and personally directed, filmed, and edited the videos and reels, using motion and festival branding to keep the lineup, merch, and event energy visible in-feed.</p>
+              <div class="social-asset-grid" aria-label="Jokechella 7 social media graphics">
+                <figure class="social-card square-card">
+                  <div class="social-frame square">
+                    <img src="../../assets/work/jokechella-7/social/square-post.jpg" width="1600" height="1600" alt="Square Jokechella 7 coming this summer social post">
+                  </div>
+                  <figcaption>Square feed announcement post.</figcaption>
+                </figure>
+                <figure class="social-card tall">
+                  <div class="social-frame">
+                    <img src="../../assets/work/jokechella-7/social/instagram-highlight.jpg" width="897" height="1600" alt="Vertical Jokechella 7 Instagram story highlight graphic">
+                  </div>
+                  <figcaption>Vertical story and highlight asset.</figcaption>
+                </figure>
+                <figure class="social-card wide-card">
+                  <div class="social-frame wide">
+                    <img src="../../assets/work/jokechella-7/social/slide-qr.jpg" width="2560" height="1440" alt="Jokechella 7 social slide with dates and QR code">
+                  </div>
+                  <figcaption>QR code event slide.</figcaption>
+                </figure>
+              </div>
+              <h4 class="detail-subheading">Reels</h4>
+              <div class="social-grid" aria-label="Jokechella 7 social media content examples">
+                <figure class="social-card">
+                  <div class="social-frame">
+                    <video controls muted playsinline preload="metadata" src="../../assets/work/jokechella-7/social/reel-1.mp4"></video>
+                  </div>
+                  <figcaption>Short-form announcement reel.</figcaption>
+                </figure>
+                <figure class="social-card">
+                  <div class="social-frame">
+                    <video controls muted playsinline preload="metadata" src="../../assets/work/jokechella-7/social/reel-2.mp4"></video>
+                  </div>
+                  <figcaption>Extended festival promo reel.</figcaption>
+                </figure>
+              </div>
+            </details>
+            <details class="detail-section" aria-labelledby="operations-heading" open>
+              <summary><h3 id="operations-heading">Outcome</h3></summary>
+              <p>Helped the sold-out three-day festival feel cohesive from first impression through the in-room experience while accruing over $25k in revenue.</p>
+            </details>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
+      const repelLetters = [...document.querySelectorAll(".repel-letter")];
+      const projectSidebar = document.querySelector(".project-sidebar");
+      const desktopLayoutQuery = window.matchMedia("(min-width: 721px)");
+      const pointer = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
+      const positions = Array.from({ length: 12 }, () => ({ ...pointer }));
+
+      const syncProjectPanelHeight = () => {
+        if (!projectSidebar || !desktopLayoutQuery.matches) {
+          document.documentElement.style.removeProperty("--project-sidebar-height");
+          return;
+        }
+
+        document.documentElement.style.setProperty("--project-sidebar-height", `${projectSidebar.offsetHeight}px`);
+      };
+
+      const setPointerPosition = (x, y, shouldSnap = false) => {
+        pointer.x = x;
+        pointer.y = y;
+
+        if (!shouldSnap) return;
+
+        positions.forEach((position) => {
+          position.x = x;
+          position.y = y;
+        });
+      };
+
+      const updatePointer = (event) => {
+        setPointerPosition(event.clientX, event.clientY);
+      };
+
+      const updateTouchPointer = (event) => {
+        const touch = event.touches && event.touches[0];
+        if (!touch) return;
+        setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
+      };
+
+      const animateCursor = () => {
+        positions[0].x += (pointer.x - positions[0].x) * 0.22;
+        positions[0].y += (pointer.y - positions[0].y) * 0.22;
+
+        for (let index = 1; index < positions.length; index += 1) {
+          positions[index].x += (positions[index - 1].x - positions[index].x) * 0.2;
+          positions[index].y += (positions[index - 1].y - positions[index].y) * 0.2;
+        }
+
+        cursorDot.style.transform = `translate(${positions[0].x}px, ${positions[0].y}px)`;
+
+        cursorTrail.forEach((element, index) => {
+          element.style.transform = `translate(${positions[index + 1].x}px, ${positions[index + 1].y}px)`;
+        });
+
+        if (repelLetters.length) {
+          const repelDistance = 150;
+
+          repelLetters.forEach((letter) => {
+            const letterBounds = letter.getBoundingClientRect();
+            const letterCenterX = letterBounds.left + letterBounds.width / 2;
+            const letterCenterY = letterBounds.top + letterBounds.height / 2;
+            const deltaX = letterCenterX - pointer.x;
+            const deltaY = letterCenterY - pointer.y;
+            const distance = Math.hypot(deltaX, deltaY);
+
+            if (distance < repelDistance && distance > 0) {
+              const strength = (repelDistance - distance) / repelDistance;
+              const offsetX = (deltaX / distance) * strength * 12;
+              const offsetY = (deltaY / distance) * strength * 7;
+              letter.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            } else {
+              letter.style.transform = "translate(0, 0)";
+            }
+          });
+        }
+
+        requestAnimationFrame(animateCursor);
+      };
+
+      window.addEventListener("pointermove", updatePointer);
+      window.addEventListener("touchstart", updateTouchPointer, { passive: true });
+      window.addEventListener("touchmove", updateTouchPointer, { passive: true });
+      window.addEventListener("resize", syncProjectPanelHeight);
+      desktopLayoutQuery.addEventListener("change", syncProjectPanelHeight);
+
+      if (projectSidebar && "ResizeObserver" in window) {
+        new ResizeObserver(syncProjectPanelHeight).observe(projectSidebar);
+      }
+
+      syncProjectPanelHeight();
+      requestAnimationFrame(animateCursor);
+    </script>
+  </body>
+</html>
