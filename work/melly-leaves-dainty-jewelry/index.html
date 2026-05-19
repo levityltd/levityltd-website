@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Melly Leaves Dainty Jewelry | Levity Ltd</title>
+    <link rel="icon" href="../../assets/cloud-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../../assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="preload" as="image" href="../../assets/brand/Levity%20Logo.webp">
+    <link rel="preload" as="image" href="../../assets/work/melly-leaves-dainty-jewelry.webp">
+    <link rel="preload" as="image" href="../../assets/work/melly-leaves-dainty-jewelry/relief-art-bright.png">
+    <link rel="preload" as="image" href="../../assets/work/melly-leaves-dainty-jewelry/burnt-orange-daisy.jpg">
+    <link rel="preload" as="image" href="../../assets/work/melly-leaves-dainty-jewelry/periwinkle-set.jpg">
+    <link rel="preload" as="image" href="../../assets/work/melly-leaves-dainty-jewelry/classic-sparkly.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --levity-lilac: #b1a1ed;
+        --levity-limelight: #c1ff72;
+        --levity-eggplant: #564f74;
+        --levity-fog: #d6d4d8;
+        --levity-cloud: #fbfaf0;
+        --font-body: "Nunito", system-ui, sans-serif;
+        --font-accent: "Satisfy", cursive;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+        background: var(--levity-lilac);
+      }
+
+      body {
+        height: 100dvh;
+        min-height: 100dvh;
+        margin: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(193, 255, 114, 0.28), transparent 34rem),
+          linear-gradient(180deg, var(--levity-lilac), #9586d5 68%, var(--levity-eggplant));
+        color: var(--levity-cloud);
+        cursor: none;
+        font-family: var(--font-body);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.8px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.68) 0 1px, transparent 1.6px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.46) 0 1.4px, transparent 2.2px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.78) 0 0.8px, transparent 1.5px);
+        background-position:
+          8% 18%,
+          62% 34%,
+          36% 76%,
+          84% 92%;
+        background-size:
+          118px 132px,
+          164px 148px,
+          226px 198px,
+          94px 112px;
+        opacity: 0.42;
+        animation: sparkle-rise 48s linear infinite;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 14px 0 8px;
+      }
+
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transform: translateX(-18px);
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .brand-link img {
+        width: 173px;
+        height: 173px;
+        object-fit: contain;
+        animation: logo-float 6s ease-in-out infinite;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(12, 6, 34, 0.2);
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.13);
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .book-link {
+        background: var(--levity-limelight);
+        color: var(--levity-eggplant);
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible,
+      .back-link:hover,
+      .back-link:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(193, 255, 114, 0.45);
+        outline: none;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        width: min(1120px, calc(100% - 40px));
+        height: calc(100dvh - 142px);
+        max-height: calc(100dvh - 142px);
+        margin: -24px auto 0;
+        padding: 4px 0 72px;
+        overflow: visible;
+      }
+
+      .page-heading {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: end;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .work-label {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        margin: 0;
+        color: var(--levity-limelight);
+        font-size: clamp(1.6rem, 3vw, 2.35rem);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .repel-letter {
+        display: inline-block;
+        transition: transform 0.16s ease-out;
+        will-change: transform;
+      }
+
+      .project-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: 18px;
+        width: 100%;
+        min-height: 0;
+        align-self: start;
+        align-items: stretch;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+      }
+
+      .project-media,
+      .summary-panel,
+      .detail-panel {
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 12px;
+        background: rgba(177, 161, 237, 0.96);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow:
+          0 0 10px rgba(255, 255, 255, 0.9),
+          0 0 24px rgba(255, 255, 255, 0.62),
+          0 0 46px rgba(193, 255, 114, 0.42),
+          0 0 72px rgba(193, 255, 114, 0.22),
+          inset 0 0 18px rgba(255, 255, 255, 0.24);
+      }
+
+      .project-sidebar {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+        min-height: 0;
+      }
+
+      .project-media,
+      .summary-panel,
+      .detail-panel {
+        padding: 14px;
+      }
+
+      .project-frame {
+        display: grid;
+        place-items: center;
+        min-height: 200px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .project-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform-origin: center;
+      }
+
+      .summary-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .summary-heading,
+      .detail-heading {
+        margin: 0;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .summary-copy,
+      .detail-copy {
+        display: grid;
+        gap: 14px;
+      }
+
+      .detail-section {
+        display: grid;
+        gap: 8px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .detail-section:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .detail-section summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        color: #ffffff;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .detail-section summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .detail-section summary::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-right: 2px solid var(--levity-limelight);
+        border-bottom: 2px solid var(--levity-limelight);
+        transform: rotate(45deg) translateY(-2px);
+        transform-origin: center;
+        transition: transform 0.18s ease;
+      }
+
+      .detail-section[open] summary::after {
+        transform: rotate(225deg) translateY(-2px);
+      }
+
+      .detail-section h3 {
+        margin: 0;
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .detail-subheading {
+        margin: 18px 0 2px;
+        color: var(--levity-limelight);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .summary-copy p,
+      .detail-copy p {
+        margin: 0;
+        color: var(--levity-eggplant);
+        font-size: 0.92rem;
+        font-weight: 800;
+        line-height: 1.42;
+      }
+
+      .detail-section > p + figure,
+      .detail-section > p + .social-asset-grid,
+      .detail-section > p + .sample-grid,
+      .detail-section > p + .photo-grid {
+        margin-top: 8px;
+      }
+
+      .art-card {
+        display: grid;
+        gap: 6px;
+        width: 100%;
+        margin: 0;
+      }
+
+      .art-layout {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 16px;
+        margin-top: 8px;
+      }
+
+      .art-frame {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.16);
+        aspect-ratio: 579 / 1073;
+      }
+
+      .art-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .art-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .credit-link {
+        color: var(--levity-limelight);
+        text-decoration: none;
+      }
+
+      .credit-link:hover,
+      .credit-link:focus-visible {
+        text-decoration: underline;
+        outline: none;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .photo-card {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+      }
+
+      .photo-frame {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.16);
+        aspect-ratio: 2 / 3;
+      }
+
+      .photo-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .project-kicker,
+      .meta-label {
+        margin: 0;
+        color: var(--levity-limelight);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+        height: var(--project-sidebar-height, auto);
+        max-height: var(--project-sidebar-height, none);
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-color: rgba(193, 255, 114, 0.7) rgba(255, 255, 255, 0.12);
+      }
+
+      .detail-panel::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .detail-panel::-webkit-scrollbar-track {
+        margin-block: 22px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+      }
+
+      .sample-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        align-items: stretch;
+        column-gap: 14px;
+      }
+
+      .sample-stack {
+        display: grid;
+        gap: 8px;
+        align-content: start;
+      }
+
+      .sample-card {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 4px;
+        margin: 0;
+        min-height: 0;
+      }
+
+      .sample-card.featured {
+        grid-column: 1;
+      }
+
+      .sample-frame {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .sample-card:not(.featured) .sample-frame {
+        height: clamp(150px, 17vw, 188px);
+        padding: 10px;
+      }
+
+      .sample-card.spec-card .sample-frame {
+        height: clamp(210px, 24vw, 260px);
+      }
+
+      .sample-card.featured .sample-frame {
+        height: 100%;
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .sample-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .sample-card.featured img {
+        max-height: 520px;
+        object-fit: cover;
+      }
+
+      .sample-card:not(.featured) img {
+        width: 92%;
+        height: 92%;
+        object-fit: contain;
+      }
+
+      .sample-card.spec-card img {
+        transform: translateY(-10px);
+      }
+
+      .sample-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .social-asset-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+          "square tall"
+          "banner tall";
+        gap: 14px;
+        align-items: start;
+      }
+
+      .social-card.square-card {
+        grid-area: square;
+      }
+
+      .social-card.tall {
+        grid-area: tall;
+      }
+
+      .social-card.wide-card {
+        grid-area: banner;
+      }
+
+      .social-card {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+      }
+
+      .social-frame {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #000000;
+        aspect-ratio: 9 / 16;
+      }
+
+      .social-frame.square {
+        aspect-ratio: 1 / 1;
+      }
+
+      .social-frame.wide {
+        aspect-ratio: 16 / 9;
+      }
+
+      .social-frame video,
+      .social-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .social-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .poster-card {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+      }
+
+      .poster-frame {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 8px;
+        background: #ffffff;
+        aspect-ratio: 3300 / 5100;
+        max-height: 560px;
+      }
+
+      .poster-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .poster-card figcaption {
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .detail-panel::-webkit-scrollbar-thumb {
+        background: rgba(193, 255, 114, 0.7);
+        border-radius: 999px;
+      }
+
+      .meta-list {
+        display: grid;
+        gap: 14px;
+        margin: 0;
+      }
+
+      .meta-list div {
+        display: grid;
+        gap: 4px;
+      }
+
+      .meta-list dd {
+        margin: 0;
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .back-link {
+        display: inline-flex;
+        grid-column: 3;
+        grid-row: 1;
+        align-items: center;
+        justify-content: center;
+        justify-self: end;
+        min-height: 42px;
+        width: fit-content;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.13);
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-decoration: none;
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      @media (max-width: 900px) {
+        .project-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .work-label,
+        .project-sidebar,
+        .detail-panel {
+          grid-column: auto;
+        }
+
+        .back-link {
+          grid-column: auto;
+          grid-row: auto;
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          width: 100vw;
+          max-width: 100vw;
+          height: auto;
+          overflow: auto;
+        }
+
+        .site-header {
+          flex-direction: row;
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
+          align-items: center;
+          gap: 8px;
+        }
+
+        .brand-link {
+          flex: 0 0 auto;
+          transform: translateX(-12px);
+        }
+
+        .brand-link img {
+          width: 96px;
+          height: 96px;
+        }
+
+        .nav-links {
+          flex: 1 1 auto;
+          gap: 6px;
+          margin-top: 0;
+          padding: 6px;
+        }
+
+        .nav-link {
+          min-height: 38px;
+          padding: 0 10px;
+          font-size: 0.82rem;
+        }
+
+        main {
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
+          height: auto;
+          max-height: none;
+          margin-top: -24px;
+          padding-top: 12px;
+          padding-bottom: 28px;
+          overflow: visible;
+        }
+
+        .page-heading {
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: 12px;
+          margin-bottom: 12px;
+        }
+
+        .work-label {
+          grid-column: auto;
+          grid-row: auto;
+          font-size: 1.55rem;
+        }
+
+        .back-link {
+          grid-column: auto;
+          grid-row: auto;
+          min-height: 34px;
+          padding: 0 13px;
+          font-size: 0.78rem;
+        }
+
+        .project-media,
+        .summary-panel,
+        .detail-panel {
+          padding: 12px;
+        }
+
+        .detail-panel {
+          height: clamp(360px, 58svh, 620px);
+          max-height: clamp(360px, 58svh, 620px);
+          overflow-y: auto;
+        }
+
+        .project-frame {
+          min-height: 160px;
+        }
+
+        .summary-copy p,
+        .detail-copy p {
+          font-size: 0.84rem;
+        }
+
+        .sample-grid {
+          grid-template-columns: 1fr;
+          row-gap: 8px;
+        }
+
+        .social-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .social-asset-grid {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "square"
+            "banner"
+            "tall";
+        }
+
+        .photo-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .art-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .art-card {
+          width: min(100%, 220px);
+        }
+
+        .sample-card.featured {
+          grid-column: auto;
+        }
+
+        .sample-stack {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sample-card:not(.featured) .sample-frame,
+        .sample-card.spec-card .sample-frame {
+          height: clamp(150px, 34vw, 210px);
+        }
+
+        .sample-card.spec-card img {
+          transform: none;
+        }
+
+        .sample-frame,
+        .sample-card.featured .sample-frame {
+          min-height: 190px;
+        }
+      }
+
+      @keyframes logo-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes sparkle-rise {
+        0% {
+          background-position:
+            8% 118%,
+            62% 134%,
+            36% 176%,
+            84% 192%;
+        }
+
+        100% {
+          background-position:
+            8% -18%,
+            62% -34%,
+            36% -76%,
+            84% -92%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .brand-link img,
+        body::before {
+          animation: none;
+        }
+      }
+
+      .cursor-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .cursor-dot,
+      .cursor-trail {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.9),
+          0 0 12px rgba(255, 194, 236, 0.8),
+          0 0 18px rgba(193, 255, 114, 0.7);
+        transform: translate(-100px, -100px);
+        transition: transform 0.02s linear;
+      }
+
+      .cursor-trail {
+        width: 6px;
+        height: 6px;
+        opacity: 0.7;
+        filter: blur(0.2px);
+      }
+
+      @media (pointer: coarse) {
+        body {
+          cursor: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-layer" aria-hidden="true">
+      <div class="cursor-dot"></div>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+      <span class="cursor-trail"></span>
+    </div>
+    <header class="site-header">
+      <a class="brand-link" href="../../" aria-label="Levity Ltd home">
+        <img src="../../assets/brand/Levity%20Logo.webp" width="173" height="173" alt="">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="../../">Home</a>
+        <a class="nav-link" href="../">Work</a>
+        <a class="nav-link" href="../../blog/">Blog</a>
+        <a class="nav-link book-link" href="https://calendly.com/melissa-levity/30min" target="_blank" rel="noopener noreferrer">Book</a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-heading" aria-labelledby="work-title">
+        <h1 class="work-label" id="work-title" aria-label="Work: Melly Leaves">
+          <span class="repel-letter" aria-hidden="true">W</span><span class="repel-letter" aria-hidden="true">o</span><span class="repel-letter" aria-hidden="true">r</span><span class="repel-letter" aria-hidden="true">k</span><span aria-hidden="true">: </span><span class="repel-letter" aria-hidden="true">M</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">l</span><span class="repel-letter" aria-hidden="true">y</span><span aria-hidden="true"> </span><span class="repel-letter" aria-hidden="true">L</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">a</span><span class="repel-letter" aria-hidden="true">v</span><span class="repel-letter" aria-hidden="true">e</span><span class="repel-letter" aria-hidden="true">s</span>
+        </h1>
+        <a class="back-link" href="../">Back to Work</a>
+      </section>
+
+      <section class="project-layout" aria-label="Melly Leaves Dainty Jewelry project details">
+        <div class="project-sidebar">
+          <article class="project-media" aria-label="Melly Leaves Dainty Jewelry visual identity">
+            <div class="project-frame">
+              <img src="../../assets/work/melly-leaves-dainty-jewelry.webp" width="3024" height="1549" alt="Melly Leaves Dainty Jewelry homepage showing handmade jewelry photos and peach floral brand artwork">
+            </div>
+          </article>
+
+          <aside class="summary-panel" aria-label="Project summary">
+            <div>
+              <p class="project-kicker">Brand Identity</p>
+            </div>
+            <div class="summary-copy">
+              <p>Levity created the brand identity for Melly Leaves Dainty Jewelry, shaping a delicate, handmade identity for beaded pieces available in San Francisco boutiques.</p>
+            </div>
+            <dl class="meta-list">
+              <div>
+                <dt class="meta-label">Client</dt>
+                <dd>Melly Leaves Dainty Jewelry</dd>
+              </div>
+              <div>
+                <dt class="meta-label">Project</dt>
+                <dd>Brand identity</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <article class="detail-panel" aria-label="Project details">
+          <h2 class="detail-heading">Details</h2>
+          <div class="detail-copy">
+            <details class="detail-section" aria-labelledby="brand-identity-heading" open>
+              <summary><h3 id="brand-identity-heading">Brand Identity</h3></summary>
+              <p>Created a delicate, handmade identity for a dainty jewelry line built around beaded pieces, soft floral artwork, and a boutique-ready presentation.</p>
+            </details>
+            <details class="detail-section" aria-labelledby="relief-artwork-heading">
+              <summary><h3 id="relief-artwork-heading">Relief Artwork</h3></summary>
+              <div class="art-layout">
+                <figure class="art-card">
+                  <div class="art-frame">
+                    <img src="../../assets/work/melly-leaves-dainty-jewelry/relief-art-bright.png" width="579" height="1073" alt="Orange and pink floral relief print artwork used in the Melly Leaves Dainty Jewelry identity">
+                  </div>
+                  <figcaption>Relief artwork by <a class="credit-link" href="https://www.instagram.com/kickholland_art/" target="_blank" rel="noopener noreferrer">Kick Holland</a>.</figcaption>
+                </figure>
+                <p>The branding features floral designs created in collaboration with a print relief artist, who carved the motifs that appear prominently throughout the identity.</p>
+              </div>
+            </details>
+            <details class="detail-section" aria-labelledby="photography-direction-heading">
+              <summary><h3 id="photography-direction-heading">Photography Direction</h3></summary>
+              <p>Directed product photography to show the jewelry as delicate, wearable, and handmade, with close-up styling that highlights beadwork, texture, color, and scale.</p>
+              <div class="photo-grid" aria-label="Melly Leaves Dainty Jewelry product photography examples">
+                <figure class="photo-card">
+                  <div class="photo-frame">
+                    <img src="../../assets/work/melly-leaves-dainty-jewelry/burnt-orange-daisy.jpg" width="1334" height="2000" alt="Burnt orange daisy bracelet styled on a wrist with black sleeve">
+                  </div>
+                  <figcaption>Burnt orange daisy bracelet.</figcaption>
+                </figure>
+                <figure class="photo-card">
+                  <div class="photo-frame">
+                    <img src="../../assets/work/melly-leaves-dainty-jewelry/periwinkle-set.jpg" width="1350" height="1800" alt="Periwinkle blue and white bracelet set styled in sunlight">
+                  </div>
+                  <figcaption>Periwinkle bracelet set.</figcaption>
+                </figure>
+                <figure class="photo-card">
+                  <div class="photo-frame">
+                    <img src="../../assets/work/melly-leaves-dainty-jewelry/classic-sparkly.jpg" width="1334" height="2000" alt="Classic sparkly black, white, and gold bracelet set styled on a wrist">
+                  </div>
+                  <figcaption>Classic sparkly bracelet set.</figcaption>
+                </figure>
+              </div>
+            </details>
+            <details class="detail-section" aria-labelledby="materials-heading">
+              <summary><h3 id="materials-heading">Materials</h3></summary>
+              <p>The product line uses high-quality glass, stone, and metal beads, fade-resistant sterling silver findings, and durable, thermally treated beading wire.</p>
+            </details>
+            <details class="detail-section" aria-labelledby="availability-heading" open>
+              <summary><h3 id="availability-heading">Availability</h3></summary>
+              <p>Available in San Francisco boutiques.</p>
+            </details>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorTrail = [...document.querySelectorAll(".cursor-trail")];
+      const repelLetters = [...document.querySelectorAll(".repel-letter")];
+      const projectSidebar = document.querySelector(".project-sidebar");
+      const desktopLayoutQuery = window.matchMedia("(min-width: 721px)");
+      const pointer = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
+      const positions = Array.from({ length: 12 }, () => ({ ...pointer }));
+
+      const syncProjectPanelHeight = () => {
+        if (!projectSidebar || !desktopLayoutQuery.matches) {
+          document.documentElement.style.removeProperty("--project-sidebar-height");
+          return;
+        }
+
+        document.documentElement.style.setProperty("--project-sidebar-height", `${projectSidebar.offsetHeight}px`);
+      };
+
+      const setPointerPosition = (x, y, shouldSnap = false) => {
+        pointer.x = x;
+        pointer.y = y;
+
+        if (!shouldSnap) return;
+
+        positions.forEach((position) => {
+          position.x = x;
+          position.y = y;
+        });
+      };
+
+      const updatePointer = (event) => {
+        setPointerPosition(event.clientX, event.clientY);
+      };
+
+      const updateTouchPointer = (event) => {
+        const touch = event.touches && event.touches[0];
+        if (!touch) return;
+        setPointerPosition(touch.clientX, touch.clientY, event.type === "touchstart");
+      };
+
+      const animateCursor = () => {
+        positions[0].x += (pointer.x - positions[0].x) * 0.22;
+        positions[0].y += (pointer.y - positions[0].y) * 0.22;
+
+        for (let index = 1; index < positions.length; index += 1) {
+          positions[index].x += (positions[index - 1].x - positions[index].x) * 0.2;
+          positions[index].y += (positions[index - 1].y - positions[index].y) * 0.2;
+        }
+
+        cursorDot.style.transform = `translate(${positions[0].x}px, ${positions[0].y}px)`;
+
+        cursorTrail.forEach((element, index) => {
+          element.style.transform = `translate(${positions[index + 1].x}px, ${positions[index + 1].y}px)`;
+        });
+
+        if (repelLetters.length) {
+          const repelDistance = 150;
+
+          repelLetters.forEach((letter) => {
+            const letterBounds = letter.getBoundingClientRect();
+            const letterCenterX = letterBounds.left + letterBounds.width / 2;
+            const letterCenterY = letterBounds.top + letterBounds.height / 2;
+            const deltaX = letterCenterX - pointer.x;
+            const deltaY = letterCenterY - pointer.y;
+            const distance = Math.hypot(deltaX, deltaY);
+
+            if (distance < repelDistance && distance > 0) {
+              const strength = (repelDistance - distance) / repelDistance;
+              const offsetX = (deltaX / distance) * strength * 12;
+              const offsetY = (deltaY / distance) * strength * 7;
+              letter.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            } else {
+              letter.style.transform = "translate(0, 0)";
+            }
+          });
+        }
+
+        requestAnimationFrame(animateCursor);
+      };
+
+      window.addEventListener("pointermove", updatePointer);
+      window.addEventListener("touchstart", updateTouchPointer, { passive: true });
+      window.addEventListener("touchmove", updateTouchPointer, { passive: true });
+      window.addEventListener("resize", syncProjectPanelHeight);
+      desktopLayoutQuery.addEventListener("change", syncProjectPanelHeight);
+
+      if (projectSidebar && "ResizeObserver" in window) {
+        new ResizeObserver(syncProjectPanelHeight).observe(projectSidebar);
+      }
+
+      syncProjectPanelHeight();
+      requestAnimationFrame(animateCursor);
+    </script>
+  </body>
+</html>
