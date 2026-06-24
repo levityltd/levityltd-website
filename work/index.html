@@ -451,16 +451,11 @@
           width: 100vw;
           max-width: 100vw;
           overflow: hidden;
-          cursor: auto;
         }
 
         body::before {
           opacity: 0.18;
           animation: none;
-        }
-
-        .cursor-layer {
-          display: none;
         }
 
         .site-header {
@@ -817,7 +812,6 @@
       const projectCards = [...document.querySelectorAll(".project-card")];
       const defaultHoverPanelMarkup = hoverPanel ? hoverPanel.innerHTML : "";
       const mobileDetailsQuery = window.matchMedia("(max-width: 720px)");
-      const finePointerQuery = window.matchMedia("(pointer: fine)");
       let activeMobileProjectCard = null;
       let mobileDetailsFrame = 0;
       const pointer = {
@@ -955,11 +949,7 @@
         requestAnimationFrame(animateCursor);
       };
 
-      if (finePointerQuery.matches) {
-        window.addEventListener("pointermove", updatePointer);
-        requestAnimationFrame(animateCursor);
-      }
-
+      window.addEventListener("pointermove", updatePointer);
       window.addEventListener("touchstart", updateTouchPointer, { passive: true });
       window.addEventListener("touchmove", updateTouchPointer, { passive: true });
       projectList?.addEventListener("scroll", requestMobileProjectDetailsUpdate, { passive: true });
@@ -976,6 +966,7 @@
         }
       });
       requestMobileProjectDetailsUpdate();
+      requestAnimationFrame(animateCursor);
 
       const loadAnalytics = () => {
         window.dataLayer = window.dataLayer || [];
